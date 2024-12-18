@@ -8,6 +8,7 @@ const cors = require("cors");
 const usersRouter = require("./routes/usersRoute.js");
 const trainingRouter = require("./routes/trainingRoute.js");
 const professionsRouter = require("./routes/professionsRoute.js");
+const forumsRouter = require("./routes/forumsRoute.js");
 // const postsRouter = require("./routes/postsRoute.js");
 // const commentsRouter = require("./routes/commentsRoute.js");
 const centralizedErrorHandler = require("./middleware/centralizedErrorHandler.js");
@@ -47,6 +48,7 @@ app.use(json());
 app.use("/api/users", usersRouter);
 app.use("/api/training", trainingRouter);
 app.use("/api/professions", professionsRouter);
+app.use("/api/forums", forumsRouter);
 // app.use("/api/posts", postsRouter);
 // app.use("/api/comments", commentsRouter);
 

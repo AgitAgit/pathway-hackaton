@@ -36,7 +36,9 @@ DONE. create forum model. DONE.
 DONE. updated post model. DONE.
 DONE. updated comment model. DONE.
 
-create add forum controller and routes
+DONE. create add forum controller and routes DONE.
+DONE. create get all forums route DONE.
+Create/update add post controller and route
 
 OPTIONAL TOUCH UPS
 FOR_END.add/modify authentication so it uses jwt in the request headers authorization.

@@ -70,7 +70,7 @@ async function login(req, res, next) {
     //   { expiresIn: "1h" }
     // );
     console.log("a user has logged in...");
-    res.status(200).json({ message: `User ${username} logged in successfully.`, login:true });
+    res.status(200).json({ message: `User ${username} logged in successfully.`, login:true, user:storedUser });
     } catch (error) {
     next(error);
   }

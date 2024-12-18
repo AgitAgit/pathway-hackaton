@@ -19,7 +19,7 @@ router.get("/", getAllUsers);
 
 // router.get("/data/:id", authUser, getUserData);
 
-// router.get("/:username", authUser, getUserByUsername);
+router.get("/:username", getUserByUsername);
 
 router.post("/signup", addUser);
 
