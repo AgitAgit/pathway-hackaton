@@ -86,21 +86,14 @@ async function logout(req, res, next) {
 
 async function updateUserData(req, res, next) {
   try {
-    const { userId } = req.user;
-    const { displayName, profilePic } = req.body;
-    const existingUser = await User.findById(userId);
+    const { userWithNewData } = req.body
+    const existingUser = await User.findOne({username:userWithNewData.username});
     if (!existingUser) {
       return res.status(404).json({ message: "User not found" });
     }
-    const updatedUser = await User.findByIdAndUpdate(
-      userId,
-      { displayName, profilePic },
-      { new: true }
-    );
+    const updatedUser = await User.findByIdAndUpdate(existingUser._id, userWithNewData);
     
-    res
-    .status(201)
-    .json({ message: "User updated successfully!", updatedUser });
+    res.status(201).json({ message: "User updated successfully!", updatedUser });
   } catch (error) {
     next(error);
   }

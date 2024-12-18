@@ -26,9 +26,9 @@ DONE. create addUser controller and route DONE.
 DONE. create addTraining controller and route DONE.
 DONE. add to minimal profession the id's array DONE.
 
-NOT CRITICAL NOW create getAllUsers controller and route
+DONE. create getAllUsers controller and route DONE.
 DONE. add/modify login so it only returns successful/unsuccessful login DONE.
-create updateUser controller and route
+DONE. create updateUser controller and route DONE.
 
 OPTIONAL TOUCH UPS
 FOR_END.add/modify authentication so it uses jwt in the request headers authorization.
