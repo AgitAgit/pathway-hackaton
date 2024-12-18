@@ -19,6 +19,7 @@ async function getAllTrainingMinimal(req, res, next){
         next(error);
     }
 }
+
 // try{
 
 // } catch (error){

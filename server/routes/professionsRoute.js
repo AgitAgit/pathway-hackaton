@@ -11,8 +11,9 @@ module.exports = router;
 router.post("/many", addProfessions);
 
 //get professions
-    //get many(default 1000?)
+//get many(default 1000?)
 router.get("/", getProfessions);
-    //get by id
+//get by id
+//get by name
 //update profession
 //delete profession
