@@ -22,11 +22,16 @@ DONE. create a route and function to add trainingIds to professions (by training
 
 DONE. create a user model. DONE.
 
-create addUser controller and route
+DONE. create addUser controller and route DONE.
+create addTraining controller and route
+add to minimal profession the id's array
+
 create getAllUsers controller and route
+add/modify login so it only returns successful/unsuccessful login
 create updateUser controller and route
 
-add/modify authentication so it uses jwt in the request headers authorization
-add/modify authentication so failure stops the middleware chain and sends an error to the client
-choose which routes to protect and modify them
-modify the protected routes authorization so it will use a global variable with the jwt token.
+OPTIONAL TOUCH UPS
+FOR_END.add/modify authentication so it uses jwt in the request headers authorization.
+FOR_END.add/modify authentication so failure stops the middleware chain and sends an error to the client
+FOR_END.choose which routes to protect and modify them
+FOR_END.modify the protected routes authorization so it will use a global variable with the jwt token.
