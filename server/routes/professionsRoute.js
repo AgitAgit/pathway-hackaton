@@ -1,5 +1,5 @@
 const express = require("express");
-const { addProfessions, getProfessions } = require("../controllers/professionsController.js");
+const { addProfessions, getProfessions, addTrainingToProfessionByNames } = require("../controllers/professionsController.js");
 
 const router = express.Router();
 
@@ -15,5 +15,7 @@ router.post("/many", addProfessions);
 router.get("/", getProfessions);
 //get by id
 //get by name
+
 //update profession
+router.patch('/', addTrainingToProfessionByNames)
 //delete profession
