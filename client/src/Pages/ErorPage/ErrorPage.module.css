@@ -1,0 +1,69 @@
+/* ErrorPage.module.css */
+
+.errorPage {
+  font-family: "Arial", sans-serif;
+  background: #232323;
+  color: #ff5f5f;
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 600px;
+  margin: 80px auto;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.errorPage h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ff5f5f;
+  text-transform: uppercase;
+}
+
+.errorPage p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #dcdcdc;
+}
+
+.errorPage a {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #ff5f5f;
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background-color 0.3s, transform 0.2s ease;
+  border: 2px solid #ff5f5f;
+}
+
+.errorPage a:hover {
+  background-color: #e14b4b;
+  transform: scale(1.05);
+}
+
+.errorPage a:active {
+  transform: scale(1);
+}
+
+@media (max-width: 768px) {
+  .errorPage {
+    padding: 30px;
+    margin: 20px;
+  }
+
+  .errorPage h1 {
+    font-size: 2rem;
+  }
+
+  .errorPage p {
+    font-size: 1rem;
+  }
+
+  .errorPage a {
+    padding: 10px 25px;
+    font-size: 1rem;
+  }
+}
