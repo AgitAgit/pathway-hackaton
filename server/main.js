@@ -6,9 +6,12 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 // const { checkCollectionEmpty } = require("./injectData.js");
 const usersRouter = require("./routes/usersRoute.js");
+const trainingRouter = require("./routes/trainingRoute.js");
+const professionsRouter = require("./routes/professionsRoute.js");
 // const postsRouter = require("./routes/postsRoute.js");
 // const commentsRouter = require("./routes/commentsRoute.js");
 const centralizedErrorHandler = require("./middleware/centralizedErrorHandler.js");
+const { addTrainingArr } = require("./utils/seed.js");
 
 dotenv.config();
 
@@ -23,6 +26,7 @@ mongoose
   .then(() => {
     console.log("Connected to database. Checking documents...");
     // return checkCollectionEmpty(); // Wait for checkCollectionEmpty to finish
+    // addTrainingArr();
   })
   .catch((error) => {
     console.error(
@@ -41,6 +45,8 @@ app.use(
 app.use(json());
 
 app.use("/api/users", usersRouter);
+app.use("/api/training", trainingRouter);
+app.use("/api/professions", professionsRouter);
 // app.use("/api/posts", postsRouter);
 // app.use("/api/comments", commentsRouter);
 

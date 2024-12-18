@@ -5,5 +5,17 @@ DATA
 decide on the content and fields of the profession DONE.
 decide on the content and fields of the training object DONE.
 
-create dummy data for training (5 docs) 
-create dummy data for profession (5 docs)
+create dummy data for training (5 docs) DONE.
+create dummy data for profession (5 docs) DONE.
+
+create a route and a controller to get all training and the minimal training object DONE.
+
+create a postman workspace DONE.
+
+create an adding professions function and route. DONE.
+
+add one to test the populate DONE.
+
+create a controller and route to get all professions.(and populate the training object). DONE.
+
+create a route and function to add trainingIds to professions (by training name/id and profession name/id?)

@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const trainingSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     kind: {
         type: String,
