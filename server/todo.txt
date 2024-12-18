@@ -23,10 +23,10 @@ DONE. create a route and function to add trainingIds to professions (by training
 DONE. create a user model. DONE.
 
 DONE. create addUser controller and route DONE.
-create addTraining controller and route
-add to minimal profession the id's array
+DONE. create addTraining controller and route DONE.
+DONE. add to minimal profession the id's array DONE.
 
-create getAllUsers controller and route
+NOT CRITICAL NOW create getAllUsers controller and route
 add/modify login so it only returns successful/unsuccessful login
 create updateUser controller and route
 
