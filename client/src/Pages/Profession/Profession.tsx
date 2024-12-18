@@ -68,6 +68,18 @@ function Profession({ profession }) {
             ))}
           </ul>
         </div>
+
+        <div className={styles.section}>
+          <h2>דרישות השכלה</h2>
+          <ul>
+            {profession.requiredTrainingIds.map((training, index) => (
+              <li key={index}>
+                <strong>{training.name}</strong> - {training.durationMonths}{" "}
+                חודשים
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

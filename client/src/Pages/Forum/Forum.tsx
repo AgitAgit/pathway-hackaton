@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./Forum.module.css";
 
-function Forum() {
+export default function Forum() {
   const [posts, setPosts] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
 

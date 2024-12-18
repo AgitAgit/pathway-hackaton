@@ -3,49 +3,64 @@ const mongoose = require("mongoose");
 //need to add post count or post ids to the user, followers and following.
 const userSchema = new mongoose.Schema(
   {
-    displayName: {
-      type: String,
-      required: false,
-      unique: false,
-    },
     username: {
       type: String,
       required: true,
       unique: true,
-    },
-    plainPassword: {
-      type: String,
-      required: false,
     },
     password: {
       type: String,
       required: true,
       unique: false,
     },
-    email: {
+    plainPassword: {
       type: String,
-      required: false,
-      unique: true,
+      required: false
     },
     role: {
       type: String,
       required: false,
       default: 'user'
     },
-    profileFilters: {
-      //need to fill this
+    highSchoolGraduate: {
+      type: Boolean,
+      required: false
     },
-    profilePic: {
-      type: String,
-      required: false,
-      default: "https://loremflickr.com/500/500?lock=8792450353592873",
+    averageBagrutScore: {
+      type: Number,
+      required: false
     },
-    savedPosts: [
+    psychometricScore: {
+      type: Number,
+      required: false
+    },
+    wantedSalary: {
+      type: Number
+    },
+    wantedWeeklyHours: {
+      type: Number
+    },
+    personality: [
       {
-        type: mongoose.Schema.ObjectId,
-        ref: "Post",
-        required: false,
-      },
+        type: { personality: String, description: String }
+      }
+    ],
+    skills:[
+      {
+          type: { skill:String, description:String }
+      }
+    ],
+    abilities:[
+      {
+          type: { ability:String, description:String }
+      }
+    ],
+    training: [
+      {
+          type:mongoose.Schema.Types.ObjectId,
+          ref:"Training",
+          required:false
+      }
     ],
   },
   {
@@ -55,3 +70,10 @@ const userSchema = new mongoose.Schema(
 );
 
 module.exports = mongoose.model("User", userSchema);
+
+
+// profilePic: {
+//   type: String,
+//   required: false,
+//   default: "https://loremflickr.com/500/500?lock=8792450353592873",
+// },
