@@ -1,0 +1,14 @@
+.logoContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.logoImg {
+    width: 400px;
+}
+
+.aboutWeb {
+    padding: 20px;
+    text-align: center;
+}

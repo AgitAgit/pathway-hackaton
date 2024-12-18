@@ -7,6 +7,7 @@ import UserProfile from "./Pages/UserProfile/UserProfile.tsx";
 import SearchProfession from "./Pages/SearchProfession/SearchProfession.tsx";
 import ErrorPage from "./Pages/ErorPage/ErorPage.tsx";
 import ContactUs from "./Pages/ContactUs/ContactUs.tsx";
+import Categories from "./Pages/Categories/Categories.tsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -25,6 +26,10 @@ function App() {
         {
           path: "/userProfile",
           element: <UserProfile />,
+        },
+        {
+          path: "/categories",
+          element: <Categories />,
         },
       ],
     },
