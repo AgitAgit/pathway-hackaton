@@ -13,6 +13,10 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: false,
     },
+    plainPassword: {
+      type: String,
+      required: false
+    },
     role: {
       type: String,
       required: false,

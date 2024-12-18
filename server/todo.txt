@@ -21,3 +21,12 @@ create a controller and route to get all professions.(and populate the training 
 DONE. create a route and function to add trainingIds to professions (by training name/id and profession name/id?) DONE.
 
 DONE. create a user model. DONE.
+
+create addUser controller and route
+create getAllUsers controller and route
+create updateUser controller and route
+
+add/modify authentication so it uses jwt in the request headers authorization
+add/modify authentication so failure stops the middleware chain and sends an error to the client
+choose which routes to protect and modify them
+modify the protected routes authorization so it will use a global variable with the jwt token.
