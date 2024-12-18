@@ -14,6 +14,7 @@ import Forum from "./Pages/Forum/Forum.tsx";
 
 function App() {
   const [profession, setProfession] = useState({});
+  const [categoryName, setCategoryName] = useState("");
 
   const router = createBrowserRouter([
     {
@@ -26,7 +27,12 @@ function App() {
         },
         {
           path: "/searchProfession",
-          element: <SearchProfession setProfession={setProfession} />,
+          element: (
+            <SearchProfession
+              categoryName={categoryName}
+              setProfession={setProfession}
+            />
+          ),
         },
         {
           path: "/userProfile",
@@ -34,7 +40,7 @@ function App() {
         },
         {
           path: "/categories",
-          element: <Categories />,
+          element: <Categories setCategoryName={setCategoryName} />,
         },
         {
           path: "/profession/:name",

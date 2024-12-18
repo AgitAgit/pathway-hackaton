@@ -165,3 +165,37 @@ input[type="number"]:focus {
 .multiSelect option {
   padding: 8px;
 }
+
+.weeklyHours input {
+  width: 100px;
+  margin-left: 5px;
+}
+
+.weeklyHours {
+  /* display: flex; */
+  gap: 10px;
+}
+
+.containerSearchInputFilters {
+  display: none;
+  transition: display 0.5s ease;
+}
+
+.containerSearchInputFilters.open {
+  display: block;
+}
+
+.filterButton {
+  background-color: #ff7f50;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.filterButton:hover {
+  background-color: #ff4500;
+}

@@ -40,42 +40,53 @@ const fetchData = async () => {
   }
 };
 
-function SearchProfession({ setProfession }) {
+function SearchProfession({ setProfession, categoryName }) {
   const [professions, setProfessions] = useState("");
   const [category, setCategory] = useState("");
   const [minSalary, setMinSalary] = useState(0);
   const [personalityType, setPersonalityType] = useState("");
-  const [searchInput, setSearchInput] = useState("");
   const [minWeeklyHours, setMinWeeklyHours] = useState(0);
   const [maxWeeklyHours, setMaxWeeklyHours] = useState(100);
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
+  const toggleForm = () => {
+    setIsFormOpen(!isFormOpen);
+  };
 
   useEffect(() => {
-    fetchData().then((res) => {
-      setProfessions(res);
-    });
+    console.log(categoryName);
+
+    if (categoryName) {
+      fetchData().then((data) => {
+        setCategory(categoryName);
+        setProfessions(
+          data.filter((profession) =>
+            profession.categories.includes(categoryName)
+          )
+        );
+      });
+    } else {
+      fetchData().then((res) => {
+        setProfessions(res);
+      });
+    }
   }, []);
 
-  useEffect(() => {
-    const handleSearch = async () => {
-      const data = await fetchData();
-
-      if (!searchInput.trim()) {
-        setProfessions(data);
-        return;
-      }
-
-      setProfessions(
-        data.filter((profession) =>
-          profession.name.toLowerCase().includes(searchInput.toLowerCase())
-        )
-      );
-    };
-
-    handleSearch();
-  }, [searchInput]);
+  const handleSearch = async (ev) => {
+    const data = await fetchData();
+    setProfessions(
+      data.filter((profession) => profession.name.includes(ev.target.value))
+    );
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
+    if (name === "category" && value === "") {
+      fetchData().then((data) => {
+        setProfessions(data);
+      });
+    }
 
     switch (name) {
       case "category":
@@ -98,10 +109,12 @@ function SearchProfession({ setProfession }) {
     }
   };
 
-  const handleFilter = (e) => {
+  const handleFilter = async (e) => {
     e.preventDefault();
 
-    const filteredProfessions = professions.filter((profession) => {
+    const data = await fetchData();
+
+    const filteredProfessions = data.filter((profession) => {
       const matchesCategory = category
         ? profession.categories.includes(category)
         : true;
@@ -128,6 +141,7 @@ function SearchProfession({ setProfession }) {
     });
 
     setProfessions(filteredProfessions);
+
     console.log("פילטרים נעשו:");
     console.log("קטגוריה:", category || "לא הוזנה");
     console.log("שכר מינימום:", minSalary || "לא הוזן");
@@ -145,16 +159,20 @@ function SearchProfession({ setProfession }) {
       <div className={styles.searchInput}>
         <input
           onChange={(ev) => {
-            setSearchInput(ev.target.value);
+            handleSearch(ev);
           }}
           type="text"
           placeholder="חיפוש מקצוע..."
         />
-        <ul></ul>
       </div>
+      <button onClick={toggleForm} className={styles.filterButton}>
+        {!isFormOpen ? "פילטרים" : "סגור פילטרים"}{" "}
+      </button>
       <form
         onSubmit={handleFilter}
-        className={styles.containerSearchInputFilters}
+        className={`${styles.containerSearchInputFilters} ${
+          isFormOpen ? styles.open : ""
+        }`}
       >
         <div className={styles.filters}>
           <div className={styles.filter}>
@@ -183,25 +201,6 @@ function SearchProfession({ setProfession }) {
             />
           </div>
           <div className={styles.filter}>
-            <label>שעות שבועיות (מ- עד-)</label>
-            <div className={styles.weeklyHours}>
-              <input
-                type="number"
-                name="minWeeklyHours"
-                placeholder="מינימום"
-                value={minWeeklyHours}
-                onChange={handleInputChange}
-              />
-              <input
-                type="number"
-                name="maxWeeklyHours"
-                placeholder="מקסימום"
-                value={maxWeeklyHours}
-                onChange={handleInputChange}
-              />
-            </div>
-          </div>
-          <div className={styles.filter}>
             <label>בחר מי אתה</label>
             <select
               name="personalityType"
@@ -215,6 +214,25 @@ function SearchProfession({ setProfession }) {
                 </option>
               ))}
             </select>
+          </div>
+          <div className={styles.filter}>
+            <label>שעות שבועיות </label>
+            <div className={styles.weeklyHours}>
+              <input
+                type="number"
+                name="minWeeklyHours"
+                placeholder="מ-"
+                value={minWeeklyHours}
+                onChange={handleInputChange}
+              />
+              <input
+                type="number"
+                name="maxWeeklyHours"
+                placeholder="עד-"
+                value={maxWeeklyHours}
+                onChange={handleInputChange}
+              />
+            </div>
           </div>
         </div>
         <button className={styles.filterButton}>סנן</button>
