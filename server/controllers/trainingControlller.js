@@ -1,6 +1,6 @@
 const Training = require('../models/trainingModel.js');
 
-module.exports = { getAllTraining, getAllTrainingMinimal };
+module.exports = { getAllTraining, getAllTrainingMinimal, addTraining };
 
 async function addTraining(req, res, next){
     try{
