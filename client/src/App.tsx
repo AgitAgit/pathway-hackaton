@@ -10,6 +10,7 @@ import ContactUs from "./Pages/ContactUs/ContactUs.tsx";
 import Categories from "./Pages/Categories/Categories.tsx";
 import Profession from "./Pages/Profession/Profession.tsx";
 import Favorite from "./Pages/Favorite/Favorite.tsx";
+import Forum from "./Pages/Forum/Forum.tsx";
 
 function App() {
   const [profession, setProfession] = useState({});
@@ -42,6 +43,10 @@ function App() {
         {
           path: "/favorite",
           element: <Favorite setProfession={setProfession} />,
+        },
+        {
+          path: "/forum",
+          element: <Forum />,
         },
       ],
     },

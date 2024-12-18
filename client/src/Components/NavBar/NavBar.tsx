@@ -74,7 +74,7 @@ function NavBar() {
         <Link to="/categories" className={styles.sidebarLink}>
           קטגוריות
         </Link>
-        <Link to="#" className={styles.sidebarLink}>
+        <Link to="/forum" className={styles.sidebarLink}>
           פורמים
         </Link>
         <Link to="#" className={styles.sidebarLink}>
