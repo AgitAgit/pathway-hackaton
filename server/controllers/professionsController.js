@@ -1,6 +1,7 @@
 const Profession = require('../models/professionModel.js');
 const Training = require('../models/trainingModel.js');
 
+module.exports = { addProfessions, getProfessions, addTrainingToProfessionByNames }
 //add profession
 async function addProfessions(req, res, next) {
     try {
@@ -26,11 +27,12 @@ async function getProfessions(req, res, next) {
 //update profession
 async function addTrainingToProfessionByNames(req, res, next) {
     try {
-
+        const { professionName, trainingName } = req.body;
+        const profession = await Profession.findOne({name:professionName});
+        const training = await Training.findOne({name:trainingName});
+        res.json({ pro:profession, tra:training});
     } catch (error) {
         next(error);
     }
 }
 //delete profession
-
-module.exports = { addProfessions, getProfessions }
