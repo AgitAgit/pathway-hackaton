@@ -1,4 +1,4 @@
-import GridCategories from "../../Components/NavBar/GridCategories/GridCategories";
+import GridCategories from "../../Components/GridCategories/GridCategories";
 
 function Categories() {
   return (

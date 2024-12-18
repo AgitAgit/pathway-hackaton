@@ -1,0 +1,43 @@
+.feedbackContainer {
+  margin-top: 40px;
+  padding: 15px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.feedbackTitle {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.feedbackButtons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.feedbackButton {
+  background-color: #4caf50;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.feedbackButton:hover {
+  background-color: #45a049;
+}
+
+.counter {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+.lowOpacity {
+  opacity: 0.6;
+}

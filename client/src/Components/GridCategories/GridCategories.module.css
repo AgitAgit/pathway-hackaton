@@ -12,14 +12,14 @@
   border-radius: 10px;
   text-align: center;
   padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(76, 175, 80, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .li:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(76, 175, 80, 0.5);
 }
 
 div {
@@ -46,11 +46,13 @@ h1 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 12px rgba(76, 175, 80, 0.4);
 }
 
 .showMoreButton:hover {
   background-color: #45a049;
+  box-shadow: 0 8px 18px rgba(76, 175, 80, 0.6);
 }
 
 @media (max-width: 768px) {

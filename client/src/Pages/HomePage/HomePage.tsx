@@ -1,6 +1,7 @@
 import styles from "./HomePage.module.css";
 import Logo from "../../Assets/Screenshot 2024-12-18 114605.png";
-import GridCategories from "../../Components/NavBar/GridCategories/GridCategories";
+import GridCategories from "../../Components/GridCategories/GridCategories";
+import Feedback from "../../Components/Feedback/Feedback";
 
 function HomePage() {
   return (
@@ -15,6 +16,7 @@ function HomePage() {
         ולקבל את ההכוונה שאתה צריך ממומחים וקהילת משתמשים
       </h2>
       <GridCategories />
+      <Feedback />
     </div>
   );
 }

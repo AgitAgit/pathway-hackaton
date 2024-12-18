@@ -21,7 +21,7 @@ import {
 } from "react-icons/fa";
 import { useState } from "react";
 
-const jobCategoriesWithIcons = [
+export const jobCategoriesWithIcons = [
   { name: "טכנולוגיה", icon: <FaLaptop /> },
   { name: "הנדסה", icon: <FaWrench /> },
   { name: "בריאות ורפואה", icon: <FaHeartbeat /> },

@@ -1,5 +1,6 @@
 import styles from "./App.module.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ProfessionInterFace } from "./Components/GridProfessions/GridProfessions.tsx";
 
 import Article from "./Pages/Article/Article.tsx";
 import HomePage from "./Pages/HomePage/HomePage.tsx";
@@ -8,8 +9,12 @@ import SearchProfession from "./Pages/SearchProfession/SearchProfession.tsx";
 import ErrorPage from "./Pages/ErorPage/ErorPage.tsx";
 import ContactUs from "./Pages/ContactUs/ContactUs.tsx";
 import Categories from "./Pages/Categories/Categories.tsx";
+import Profession from "./Pages/Profession/Profession.tsx";
+import { useState } from "react";
 
 function App() {
+  const [profession, setProfession] = useState({});
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -21,7 +26,7 @@ function App() {
         },
         {
           path: "/searchProfession",
-          element: <SearchProfession />,
+          element: <SearchProfession setProfession={setProfession} />,
         },
         {
           path: "/userProfile",
@@ -30,6 +35,10 @@ function App() {
         {
           path: "/categories",
           element: <Categories />,
+        },
+        {
+          path: "/profession/:name",
+          element: <Profession profession={profession} />,
         },
       ],
     },

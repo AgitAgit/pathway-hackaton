@@ -1,0 +1,122 @@
+.searchProfession {
+  max-width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+
+.searchInput {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.searchInput input {
+  width: 60%;
+  /* עיצוב חיפוש דומיננטי */
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s;
+}
+
+.searchInput input:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.filter {
+  flex: 1;
+  min-width: 200px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+select,
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s;
+}
+
+select:focus,
+input[type="number"]:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  background-size: 12px;
+}
+
+.searchInput input:focus,
+select:focus,
+input[type="number"]:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.7);
+}
+
+
+@media (max-width: 768px) {
+  .searchProfession {
+    padding: 10px;
+  }
+
+  .searchInput input {
+    width: 80%;
+  }
+
+  .filters {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter {
+    min-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  select,
+  input[type="number"] {
+    font-size: 14px;
+  }
+}
+
+
+.filterButton {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 60px;
+
+}
+
+.filterButton:hover {
+  background-color: #45a049;
+}
