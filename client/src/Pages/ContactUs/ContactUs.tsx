@@ -17,32 +17,26 @@ const ContactUs = () => {
 
   return (
     <div className={styles.contactUsContainer}>
-      <h2 className={styles.header}>Contact Us - Pathway AI</h2>
+      <h2 className={styles.header}>צור קשר - Pathway</h2>
       <div className={styles.contactDetails}>
         <p>
-          <strong>Name:</strong> {fakeContactData.name}
+          <strong>שם:</strong> {fakeContactData.name}
         </p>
         <p>
-          <strong>Email:</strong> {fakeContactData.email}
+          <strong>אימייל:</strong> {fakeContactData.email}
         </p>
         <p>
-          <strong>address:</strong> {fakeContactData.address}
+          <strong>כתובת:</strong> {fakeContactData.address}
         </p>
         <p>
-          <strong>website</strong> {fakeContactData.website}
+          <strong>אתר אינטרנט:</strong> {fakeContactData.website}
         </p>
       </div>
       <div className={styles.footer}>
-        <p>
-          If you have any questions, feel free to reach out to us anytime. We
-          are here to help!
-        </p>
-        <p>
-          We promise to make your experience with Penn even better in the
-          future.
-        </p>
+        <p>אם יש לך שאלות, אל תהסס לפנות אלינו בכל עת. אנחנו כאן כדי לעזור!</p>
+        <p>אנו מבטיחים לשפר את חווייתך עם Penn בעתיד.</p>
         <button onClick={handleGoHome} className={styles.homeButton}>
-          Go to Home
+          חזור לדף הבית
         </button>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import chatBubble from "../../Assets/dialogue(1).png";
 import logo from "../../Assets/Screenshot 2024-12-18 114605.png";
@@ -11,10 +12,13 @@ function NavBar() {
     setIsSidebarOpen((prevState) => !prevState);
   };
 
-  // Handle clicks outside the sidebar to close it
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (isSidebarOpen && sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+      if (
+        isSidebarOpen &&
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target)
+      ) {
         setIsSidebarOpen(false);
       }
     };
@@ -31,9 +35,15 @@ function NavBar() {
       <nav className={styles.navbar}>
         <div className={styles.navbarLeft}>
           <div className={styles.logoContainer}>
-            <img className={styles.logo} src={logo} alt="logo" />
+            <Link to="/" className={styles.logoLink}>
+              <img className={styles.logo} src={logo} alt="logo" />
+            </Link>{" "}
           </div>
-          <img className={styles.chatBubble} src={chatBubble} alt="icon-massage" />
+          <img
+            className={styles.chatBubble}
+            src={chatBubble}
+            alt="icon-massage"
+          />
         </div>
         <div className={styles.navbarRight}>
           <span className={styles.navbarBurger} onClick={toggleSidebar}>
@@ -43,34 +53,39 @@ function NavBar() {
       </nav>
 
       {/* Sidebar */}
-      <div className={`${styles.sidebar} ${isSidebarOpen ? styles.sidebarOpen : ""}`} ref={sidebarRef}>
+      <div
+        className={`${styles.sidebar} ${
+          isSidebarOpen ? styles.sidebarOpen : ""
+        }`}
+        ref={sidebarRef}
+      >
         <span className={styles.closeButton} onClick={toggleSidebar}>
           &times;
         </span>
-        <a href="#" className={styles.sidebarLink}>
+        <Link to="/" className={styles.sidebarLink}>
           בית
-        </a>
-        <a href="#" className={styles.sidebarLink}>
+        </Link>
+        <Link to="/searchProfession" className={styles.sidebarLink}>
           חפש מקצוע
-        </a>
-        <a href="#" className={styles.sidebarLink}>
+        </Link>
+        <Link to="/categories" className={styles.sidebarLink}>
           קטגוריות
-        </a>
-        <a href="#" className={styles.sidebarLink}>
+        </Link>
+        <Link to="#" className={styles.sidebarLink}>
           פורמים
-        </a>
-        <a href="#" className={styles.sidebarLink}>
+        </Link>
+        <Link to="#" className={styles.sidebarLink}>
           צ'אטים
-        </a>
-        <a href="#" className={styles.sidebarLink}>
+        </Link>
+        <Link to="/userProfile" className={styles.sidebarLink}>
           איזור אישי
-        </a>
-        <a href="#" className={styles.sidebarLink}>
+        </Link>
+        <Link to="#" className={styles.sidebarLink}>
           מועדפים
-        </a>
-        <a href="#" className={styles.sidebarLink}>
+        </Link>
+        <Link to="/contactUs" className={styles.sidebarLink}>
           צור קשר
-        </a>
+        </Link>
       </div>
     </>
   );
