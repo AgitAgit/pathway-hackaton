@@ -20,6 +20,7 @@ import {
   FaMedal,
 } from "react-icons/fa";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const jobCategoriesWithIcons = [
   { name: "טכנולוגיה", icon: <FaLaptop /> },
@@ -43,11 +44,13 @@ export const jobCategoriesWithIcons = [
   { name: "ספורט", icon: <FaMedal /> },
 ];
 
-function GridCategories() {
+function GridCategories({ setCategoryName }) {
+  const navigate = useNavigate();
   const [showAll, setShowAll] = useState(false);
 
   const handleClick = (categoryName: string) => {
-    alert(`בחרת בקטגוריה: ${categoryName}`);
+    setCategoryName(categoryName);
+    navigate("/searchProfession");
   };
 
   const toggleShowAll = () => {

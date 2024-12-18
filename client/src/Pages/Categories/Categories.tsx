@@ -1,9 +1,9 @@
 import GridCategories from "../../Components/GridCategories/GridCategories";
 
-function Categories() {
+function Categories({setCategoryName}) {
   return (
     <div>
-      <GridCategories />
+      <GridCategories setCategoryName={setCategoryName} />
     </div>
   );
 }
