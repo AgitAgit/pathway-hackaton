@@ -8,7 +8,7 @@ function Article() {
     <div>
       I AM ATRICLE
       <Outlet />
-    </div>
+    </div> 
   );
 }
 
