@@ -1,1 +1,4 @@
-//
+FOR LATER turn the "personality" search options to multiple concurrent options, each with a checkbox.
+
+Wrap the search filters in an accordion
+
