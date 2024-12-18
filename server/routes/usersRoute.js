@@ -5,9 +5,6 @@ const {
   addUser,
   login,
   logout,
-  catchAll,
-  getUserData,
-  followUser,
   updateUserData,
   deleteUser,
 } = require("../controllers/usersController.js");
@@ -18,11 +15,11 @@ const router = express.Router();
 
 router.get("/", getAllUsers);
 
-router.get("/data", authUser, getUserData);
+// router.get("/data", authUser, getUserData);
 
-router.get("/data/:id", authUser, getUserData);
+// router.get("/data/:id", authUser, getUserData);
 
-router.get("/:username", authUser, getUserByUsername);
+// router.get("/:username", authUser, getUserByUsername);
 
 router.post("/signup", addUser);
 
@@ -30,12 +27,6 @@ router.post("/login", login);
 
 router.post("/logout", logout);
 
-router.post("/follow/:id", authUser, followUser);
-
-router.put("/edit-profile", authUser, updateUserData);
-
-router.delete("/:id", authUser, deleteUser);
-
-router.use(catchAll);
+// router.delete("/:id", authUser, deleteUser);
 
 module.exports = router;
