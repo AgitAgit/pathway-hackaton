@@ -24,13 +24,14 @@ const professionSchema = new mongoose.Schema(
     averageSalary:{
         type:Number
     },
-    averageHours:{
-
+    averageWeeklyHours:{
+        type:Number
     },
     requiredTrainingIds: [
         {
             type:mongoose.Schema.Types.ObjectId,
-            ref:"Training"
+            ref:"Training",
+            required:false
         }
     ],
     abilities:[

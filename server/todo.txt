@@ -2,5 +2,8 @@ AUTHENTICATION
 add authentication to the profession route so only 'developer' and 'expert' users can use them
 
 DATA
-decide on the content and fields of the profession
-decide and add profile filters to the user
+decide on the content and fields of the profession DONE.
+decide on the content and fields of the training object DONE.
+
+create dummy data for training (5 docs) 
+create dummy data for profession (5 docs)
