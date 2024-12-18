@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Forum() {
+export default function Forum() {
   const [posts, setPosts] = useState([]);
 
   const addPost = (title, content) => {
@@ -32,8 +32,17 @@ function NewPostForm({ addPost }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Post Title" />
-      <textarea value={content} onChange={(e) => setContent(e.target.value)} placeholder="Post Content"></textarea>
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="Post Title"
+      />
+      <textarea
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+        placeholder="Post Content"
+      ></textarea>
       <button type="submit">Add Post</button>
     </form>
   );
