@@ -30,6 +30,11 @@ DONE. create getAllUsers controller and route DONE.
 DONE. add/modify login so it only returns successful/unsuccessful login DONE.
 DONE. create updateUser controller and route DONE.
 
+forum -> post -> comment
+
+DONE. create forum model
+
+
 OPTIONAL TOUCH UPS
 FOR_END.add/modify authentication so it uses jwt in the request headers authorization.
 FOR_END.add/modify authentication so failure stops the middleware chain and sends an error to the client
