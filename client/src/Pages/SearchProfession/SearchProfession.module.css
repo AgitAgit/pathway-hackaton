@@ -2,6 +2,7 @@
   max-width: 100%;
   padding: 20px;
   text-align: center;
+  margin-top: 60px;
 }
 
 .searchInput {
@@ -12,7 +13,6 @@
 
 .searchInput input {
   width: 60%;
-  /* עיצוב חיפוש דומיננטי */
   padding: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -98,12 +98,22 @@ input[type="number"]:focus {
     margin-bottom: 10px;
   }
 
+  .filter label {
+    margin: 0;
+  }
+
   select,
   input[type="number"] {
     font-size: 14px;
   }
+
+  .select {
+    margin-top: 00;
+    padding-top: 0;
+  }
 }
 
+.containerSearchInputFilters {}
 
 .filterButton {
   background-color: #4CAF50;

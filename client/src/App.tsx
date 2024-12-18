@@ -1,6 +1,5 @@
-import styles from "./App.module.css";
+import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { ProfessionInterFace } from "./Components/GridProfessions/GridProfessions.tsx";
 
 import Article from "./Pages/Article/Article.tsx";
 import HomePage from "./Pages/HomePage/HomePage.tsx";
@@ -10,7 +9,7 @@ import ErrorPage from "./Pages/ErorPage/ErorPage.tsx";
 import ContactUs from "./Pages/ContactUs/ContactUs.tsx";
 import Categories from "./Pages/Categories/Categories.tsx";
 import Profession from "./Pages/Profession/Profession.tsx";
-import { useState } from "react";
+import Favorite from "./Pages/Favorite/Favorite.tsx";
 
 function App() {
   const [profession, setProfession] = useState({});
@@ -39,6 +38,10 @@ function App() {
         {
           path: "/profession/:name",
           element: <Profession profession={profession} />,
+        },
+        {
+          path: "/favorite",
+          element: <Favorite setProfession={setProfession} />,
         },
       ],
     },

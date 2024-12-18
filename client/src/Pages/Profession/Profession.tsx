@@ -7,6 +7,11 @@ function Profession({ profession }) {
       <p className={styles.professionDescription}>{profession.description}</p>
 
       <div className={styles.professionSections}>
+        <div className={styles.salaryInfo}>
+          <h2>נתונים</h2>
+          <p>שכר ממוצע: ${profession.averageSalary.toLocaleString()}</p>
+          <p>שעות עבודה שבועיות ממוצעות: {profession.averageWeeklyHours}</p>
+        </div>
         <div className={styles.section}>
           <h2>קטגוריות</h2>
           <ul>
@@ -63,12 +68,6 @@ function Profession({ profession }) {
             ))}
           </ul>
         </div>
-      </div>
-
-      <div className={styles.salaryInfo}>
-        <h2>מידע נוסף</h2>
-        <p>שכר ממוצע: ${profession.averageSalary.toLocaleString()}</p>
-        <p>שעות עבודה שבועיות ממוצעות: {profession.averageWeeklyHours}</p>
       </div>
     </div>
   );

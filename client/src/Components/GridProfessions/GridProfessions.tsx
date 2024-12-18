@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./GridProfessions.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -258,20 +258,37 @@ const fakeData: ProfessionInterFace[] = [
 
 const GridProfessions: React.FC<{
   setProfession: (profession: ProfessionInterFace) => void;
-}> = ({ setProfession }) => {
-  const [favoriteProfessions, setFavoriteProfessions] = useState<string[]>(
-    () => {
-      const storedFavorites = localStorage.getItem("favoriteProfessions");
-      return storedFavorites ? JSON.parse(storedFavorites) : [];
-    }
-  );
+  professions?: ProfessionInterFace[];
+}> = ({ setProfession, professions = [] }) => {
+  const [favoriteProfessions, setFavoriteProfessions] = useState<
+    ProfessionInterFace[]
+  >(() => {
+    const storedFavorites = localStorage.getItem("favoriteProfessions");
+    return storedFavorites ? JSON.parse(storedFavorites) : [];
+  });
 
+  const [professionToRender, setProfessionToRender] = useState<
+    ProfessionInterFace[]
+  >([]);
   const navigate = useNavigate();
 
-  const handleFavoriteToggle = (professionName: string) => {
-    const updatedFavorites = favoriteProfessions.includes(professionName)
-      ? favoriteProfessions.filter((name: string) => name !== professionName)
-      : [...favoriteProfessions, professionName];
+  useEffect(() => {
+    setProfessionToRender(professions.length > 0 ? professions : fakeData);
+  }, [professions]);
+
+  const handleFavoriteToggle = (profession: ProfessionInterFace) => {
+    const isFavorite = favoriteProfessions.some(
+      (fav) => fav.name === profession.name
+    );
+
+    let updatedFavorites;
+    if (isFavorite) {
+      updatedFavorites = favoriteProfessions.filter(
+        (fav) => fav.name !== profession.name
+      );
+    } else {
+      updatedFavorites = [...favoriteProfessions, profession];
+    }
 
     setFavoriteProfessions(updatedFavorites);
 
@@ -288,35 +305,45 @@ const GridProfessions: React.FC<{
 
   return (
     <ul className="ul">
-      {fakeData.map((profession, index) => {
-        const isFavorite = favoriteProfessions.includes(profession.name);
+      {professionToRender.length === 0 ? (
+        <p>אין מקצועות שאהבת</p>
+      ) : (
+        professionToRender.map((profession, index) => {
+          const isFavorite = favoriteProfessions.some(
+            (fav) => fav.name === profession.name
+          );
 
-        return (
-          <li
-            key={index}
-            className="li"
-            onClick={() => handleProfessionClick(profession)}
-          >
-            <h1>{profession.name}</h1>
-            <p>{profession.description}</p>
-            <p>
-              <strong>קטגוריות:</strong> {profession.categories.join(", ")}
-            </p>
-            <p>
-              <strong>שכר ממוצע:</strong> ₪{profession.averageSalary}
-            </p>
-            <div
-              className="div"
-              onClick={(e) => {
-                e.stopPropagation();
-                handleFavoriteToggle(profession.name);
-              }}
+          return (
+            <li
+              key={index}
+              className="li"
+              onClick={() => handleProfessionClick(profession)}
             >
-              {isFavorite ? "−" : "+"}
-            </div>
-          </li>
-        );
-      })}
+              <h1>{profession.name}</h1>
+              <p>{profession.description}</p>
+              <p>
+                <strong>קטגוריות:</strong>{" "}
+                {profession.categories && profession.categories.length > 0
+                  ? profession.categories.join(", ")
+                  : "אין קטגוריות"}
+              </p>
+
+              <p>
+                <strong>שכר ממוצע:</strong> ₪{profession.averageSalary}
+              </p>
+              <div
+                className="div"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleFavoriteToggle(profession);
+                }}
+              >
+                {isFavorite ? "−" : "+"}
+              </div>
+            </li>
+          );
+        })
+      )}
     </ul>
   );
 };

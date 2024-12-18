@@ -6,7 +6,9 @@ function Article() {
   return (
     <div>
       <NavBar />
-      <Outlet />
+      <div className={styles.article}>
+        <Outlet />
+      </div>
     </div>
   );
 }
