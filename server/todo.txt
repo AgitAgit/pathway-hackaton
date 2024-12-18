@@ -27,7 +27,7 @@ DONE. create addTraining controller and route DONE.
 DONE. add to minimal profession the id's array DONE.
 
 NOT CRITICAL NOW create getAllUsers controller and route
-add/modify login so it only returns successful/unsuccessful login
+DONE. add/modify login so it only returns successful/unsuccessful login DONE.
 create updateUser controller and route
 
 OPTIONAL TOUCH UPS
