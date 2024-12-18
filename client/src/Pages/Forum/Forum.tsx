@@ -104,5 +104,3 @@ function Thread({ post, addComment, onBack }) {
     </div>
   );
 }
-
-export default Forum;
