@@ -83,7 +83,7 @@ const GridProfessions: React.FC<{
   return (
     <ul className="ul">
       {professionToRender.length === 0 ? (
-        <p>אין מקצועות שאהבת</p>
+        <p>אין מקצועות </p>
       ) : (
         professionToRender.map((profession, index) => {
           const isFavorite = favoriteProfessions.some(

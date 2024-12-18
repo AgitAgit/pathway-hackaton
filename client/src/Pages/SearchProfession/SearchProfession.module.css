@@ -147,3 +147,21 @@ input[type="number"]:focus {
   width: 100%;
   align-items: center;
 }
+
+.multiSelect {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.multiSelect option:checked {
+  background-color: #00bcd4;
+  color: white;
+}
+
+.multiSelect option {
+  padding: 8px;
+}

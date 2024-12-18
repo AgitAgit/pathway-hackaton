@@ -1,185 +1,3 @@
-// import { useEffect, useState } from "react";
-// import styles from "./SearchProfession.module.css";
-// import { jobCategoriesWithIcons } from "../../Components/GridCategories/GridCategories.tsx";
-// import GridProfessions from "../../Components/GridProfessions/GridProfessions.tsx";
-
-// const personalityTypes = [
-//   "ביצועיסט",
-//   "חושב",
-//   "מנהיג",
-//   "יצירתי",
-//   "מעשי",
-//   "אנליטי",
-//   "דינמי",
-//   "סקרן",
-//   "אחראי",
-//   "שיטתי",
-//   "מנומס",
-//   "תיאורי",
-//   "מקשיב",
-//   "דומיננטי",
-//   "אסטרטגי",
-//   "רגוע",
-//   "מעורר השראה",
-//   "חברתי",
-//   "פותר בעיות",
-//   "תומך",
-// ];
-
-// const fetchData = async () => {
-//   try {
-//     const response = await fetch("http://localhost:3000/api/professions");
-//     if (!response.ok) {
-//       throw new Error("Network response was not ok");
-//     }
-//     const data = await response.json();
-//     return data;
-//   } catch (error) {
-//     console.error("Error fetching data:", error);
-//     return [];
-//   }
-// };
-
-// function SearchProfession({ setProfession }) {
-//   const [profession, setProfessions] = useState("");
-//   const [category, setCategory] = useState("");
-//   const [minSalary, setMinSalary] = useState("");
-//   const [weeklyHours, setWeeklyHours] = useState("");
-//   const [personalityType, setPersonalityType] = useState("");
-//   const [error, setError] = useState("");
-//   const [searchInput, setSearchInput] = useState("");
-
-//   useEffect(() => {
-//     const data = fetchData().then((res) => {
-//       setProfessions(res);
-//     });
-//   }, []);
-
-//   const handleInputChange = (e) => {
-//     const { name, value } = e.target;
-
-//     switch (name) {
-//       case "category":
-//         setCategory(value);
-//         break;
-//       case "minSalary":
-//         setMinSalary(value);
-//         break;
-//       case "weeklyHours":
-//         setWeeklyHours(value);
-//         break;
-//       case "personalityType":
-//         setPersonalityType(value);
-//         break;
-//       default:
-//         break;
-//     }
-//   };
-
-//   const handleFilter = (e) => {
-//     e.preventDefault();
-//     if (!category || !minSalary || !weeklyHours || !personalityType) {
-//       setError("אנא מלא את כל השדות.");
-//       return;
-//     }
-
-//     setError("");
-//     console.log("קטגוריה:", category);
-//     console.log("שכר מינימום:", minSalary);
-//     console.log("שעות שבועיות:", weeklyHours);
-//     console.log("טיפוס:", personalityType);
-//   };
-
-//   const handleSearch = (ev) => {
-//     setSearchInput(ev.target.value);
-//     setProfessions((prev) =>
-//       prev.filter(
-//         (profession) =>
-//           profession.name.includes(ev.target.value) ||
-//           profession.name.startsWith(ev.target.value)
-//       )
-//     );
-//   };
-
-//   return (
-//     <div className={styles.searchProfession}>
-//       <div className={styles.searchInput}>
-//         <input
-//           onChange={(ev) => {
-//             handleSearch(ev);
-//           }}
-//           type="text"
-//           placeholder="חיפוש מקצוע..."
-//         />
-//         <ul></ul>
-//       </div>
-//       <form
-//         onSubmit={handleFilter}
-//         className={styles.containerSearchInputFilters}
-//       >
-//         <div className={styles.filters}>
-//           <div className={styles.filter}>
-//             <label>קטגוריה</label>
-//             <select
-//               name="category"
-//               value={category}
-//               onChange={handleInputChange}
-//             >
-//               <option value="">בחר קטגוריה</option>
-//               {jobCategoriesWithIcons.map((category, index) => (
-//                 <option key={index} value={category.name}>
-//                   {category.icon} {category.name}
-//                 </option>
-//               ))}
-//             </select>
-//           </div>
-//           <div className={styles.filter}>
-//             <label>שכר מינימום</label>
-//             <input
-//               type="number"
-//               name="minSalary"
-//               placeholder="10000"
-//               value={minSalary}
-//               onChange={handleInputChange}
-//             />
-//           </div>
-//           <div className={styles.filter}>
-//             <label>שעות שבועיות</label>
-//             <input
-//               type="number"
-//               name="weeklyHours"
-//               placeholder="40"
-//               value={weeklyHours}
-//               onChange={handleInputChange}
-//             />
-//           </div>
-//           <div className={styles.filter}>
-//             <label>טיפוסים שייתכן ויתחברו</label>
-//             <select
-//               name="personalityType"
-//               value={personalityType}
-//               onChange={handleInputChange}
-//             >
-//               <option value="">בחר טיפוס</option>
-//               {personalityTypes.map((type, index) => (
-//                 <option key={index} value={type}>
-//                   {type}
-//                 </option>
-//               ))}
-//             </select>
-//           </div>
-//         </div>
-//         {error && <div className={styles.error}>{error}</div>}
-//         <button type="submit" className={styles.filterButton}>
-//           סנן
-//         </button>
-//       </form>
-//       <GridProfessions setProfession={setProfession} professions={profession} />
-//     </div>
-//   );
-// }
-
-// export default SearchProfession;
 import { useEffect, useState } from "react";
 import styles from "./SearchProfession.module.css";
 import { jobCategoriesWithIcons } from "../../Components/GridCategories/GridCategories.tsx";
@@ -193,7 +11,7 @@ const personalityTypes = [
   "מעשי",
   "אנליטי",
   "דינמי",
-  "סקרן",
+  "סקרנות",
   "אחראי",
   "שיטתי",
   "מנומס",
@@ -223,34 +41,38 @@ const fetchData = async () => {
 };
 
 function SearchProfession({ setProfession }) {
-  const [profession, setProfessions] = useState([]);
+  const [professions, setProfessions] = useState("");
   const [category, setCategory] = useState("");
-  const [minSalary, setMinSalary] = useState("");
-  const [weeklyHours, setWeeklyHours] = useState("");
+  const [minSalary, setMinSalary] = useState(0);
   const [personalityType, setPersonalityType] = useState("");
-  const [error, setError] = useState("");
   const [searchInput, setSearchInput] = useState("");
-  const [filteredProfessions, setFilteredProfessions] = useState([]);
+  const [minWeeklyHours, setMinWeeklyHours] = useState(0);
+  const [maxWeeklyHours, setMaxWeeklyHours] = useState(100);
 
   useEffect(() => {
-    const data = fetchData().then((res) => {
+    fetchData().then((res) => {
       setProfessions(res);
     });
   }, []);
 
   useEffect(() => {
-    if (searchInput) {
-      setFilteredProfessions(
-        profession.filter(
-          (profession) =>
-            profession.name.includes(searchInput) ||
-            profession.name.startsWith(searchInput)
+    const handleSearch = async () => {
+      const data = await fetchData();
+
+      if (!searchInput.trim()) {
+        setProfessions(data);
+        return;
+      }
+
+      setProfessions(
+        data.filter((profession) =>
+          profession.name.toLowerCase().includes(searchInput.toLowerCase())
         )
       );
-    } else {
-      setFilteredProfessions([]);
-    }
-  }, [searchInput, profession]);
+    };
+
+    handleSearch();
+  }, [searchInput]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -262,8 +84,11 @@ function SearchProfession({ setProfession }) {
       case "minSalary":
         setMinSalary(value);
         break;
-      case "weeklyHours":
-        setWeeklyHours(value);
+      case "minWeeklyHours":
+        setMinWeeklyHours(value);
+        break;
+      case "maxWeeklyHours":
+        setMaxWeeklyHours(value);
         break;
       case "personalityType":
         setPersonalityType(value);
@@ -275,53 +100,57 @@ function SearchProfession({ setProfession }) {
 
   const handleFilter = (e) => {
     e.preventDefault();
-    if (!category || !minSalary || !weeklyHours || !personalityType) {
-      setError("אנא מלא את כל השדות.");
-      return;
-    }
 
-    setError("");
-    console.log("קטגוריה:", category);
-    console.log("שכר מינימום:", minSalary);
-    console.log("שעות שבועיות:", weeklyHours);
-    console.log("טיפוס:", personalityType);
-  };
+    const filteredProfessions = professions.filter((profession) => {
+      const matchesCategory = category
+        ? profession.categories.includes(category)
+        : true;
+      const matchesSalary = minSalary
+        ? profession.averageSalary >= minSalary
+        : true;
+      const matchesWeeklyHours =
+        minWeeklyHours && maxWeeklyHours
+          ? profession.averageWeeklyHours >= minWeeklyHours &&
+            profession.averageWeeklyHours <= maxWeeklyHours
+          : true;
+      const matchesPersonalityType = personalityType
+        ? profession.personality.some(
+            (personality) => personality.personality === personalityType
+          )
+        : true;
 
-  const handleSearch = (ev) => {
-    setSearchInput(ev.target.value);
-  };
+      return (
+        matchesCategory &&
+        matchesSalary &&
+        matchesWeeklyHours &&
+        matchesPersonalityType
+      );
+    });
 
-  const handleResultClick = (profession) => {
-    setProfession(profession);
-    setSearchInput(profession.name);
-    setFilteredProfessions([]); // Clear results after selection
+    setProfessions(filteredProfessions);
+    console.log("פילטרים נעשו:");
+    console.log("קטגוריה:", category || "לא הוזנה");
+    console.log("שכר מינימום:", minSalary || "לא הוזן");
+    console.log(
+      "שעות שבועיות:",
+      minWeeklyHours && maxWeeklyHours
+        ? `${minWeeklyHours} - ${maxWeeklyHours}`
+        : "לא הוזנו"
+    );
+    console.log("טיפוס אישיות:", personalityType || "לא הוזן");
   };
 
   return (
     <div className={styles.searchProfession}>
       <div className={styles.searchInput}>
         <input
-          value={searchInput}
-          onChange={handleSearch}
-          onFocus={() => setFilteredProfessions(profession)}
+          onChange={(ev) => {
+            setSearchInput(ev.target.value);
+          }}
           type="text"
           placeholder="חיפוש מקצוע..."
         />
-        {filteredProfessions.length > 0 && (
-          <div className={styles.searchResults}>
-            <ul className={styles.ulSearch}>
-              {filteredProfessions.map((profession, index) => (
-                <li
-                  className={styles.liSearch}
-                  key={index}
-                  onClick={() => handleResultClick(profession)}
-                >
-                  {profession.name}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        <ul></ul>
       </div>
       <form
         onSubmit={handleFilter}
@@ -354,23 +183,32 @@ function SearchProfession({ setProfession }) {
             />
           </div>
           <div className={styles.filter}>
-            <label>שעות שבועיות</label>
-            <input
-              type="number"
-              name="weeklyHours"
-              placeholder="40"
-              value={weeklyHours}
-              onChange={handleInputChange}
-            />
+            <label>שעות שבועיות (מ- עד-)</label>
+            <div className={styles.weeklyHours}>
+              <input
+                type="number"
+                name="minWeeklyHours"
+                placeholder="מינימום"
+                value={minWeeklyHours}
+                onChange={handleInputChange}
+              />
+              <input
+                type="number"
+                name="maxWeeklyHours"
+                placeholder="מקסימום"
+                value={maxWeeklyHours}
+                onChange={handleInputChange}
+              />
+            </div>
           </div>
           <div className={styles.filter}>
-            <label>טיפוסים שייתכן ויתחברו</label>
+            <label>בחר מי אתה</label>
             <select
               name="personalityType"
               value={personalityType}
               onChange={handleInputChange}
             >
-              <option value="">בחר טיפוס</option>
+              <option>בחר טיפוס</option>
               {personalityTypes.map((type, index) => (
                 <option key={index} value={type}>
                   {type}
@@ -379,12 +217,12 @@ function SearchProfession({ setProfession }) {
             </select>
           </div>
         </div>
-        {error && <div className={styles.error}>{error}</div>}
-        <button type="submit" className={styles.filterButton}>
-          סנן
-        </button>
+        <button className={styles.filterButton}>סנן</button>
       </form>
-      <GridProfessions setProfession={setProfession} professions={profession} />
+      <GridProfessions
+        setProfession={setProfession}
+        professions={professions}
+      />
     </div>
   );
 }
