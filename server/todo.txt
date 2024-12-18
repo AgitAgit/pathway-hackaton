@@ -1,1 +1,6 @@
-//
+AUTHENTICATION
+add authentication to the profession route so only 'developer' and 'expert' users can use them
+
+DATA
+decide on the content and fields of the profession
+decide and add profile filters to the user
