@@ -20,4 +20,4 @@ create a controller and route to get all professions.(and populate the training 
 
 DONE. create a route and function to add trainingIds to professions (by training name/id and profession name/id?) DONE.
 
-    
+DONE. create a user model. DONE.
