@@ -1,7 +1,7 @@
 const express = require("express");
 
 const {
-  addPost,
+  addPosts,
   getAllPosts,
   getPostById,
   toggleLikePost,
@@ -18,7 +18,7 @@ router.get("/", getAllPosts);
 
 router.get("/:postId", getPostById);
 
-router.post("/", addPost);
+router.post("/", addPosts);
 
 router.post("/:postId/like", toggleLikePost);
 

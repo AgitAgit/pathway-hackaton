@@ -1,23 +1,11 @@
 const Post = require("../models/postModel.js");
 const User = require("../models/userModel.js");
 
-//path params:none
-//query params:none
-//example request body: { title:"post title", content:"post content", authorId:"<mongo document id>"}
-//example response: { message:<the new document generated>}
-async function addPost(req, res, next) {
+async function addPosts(req, res, next) {
   try {
-    const { title, content, postImageUrl } = req.body;
-
-    const post = new Post({
-      title,
-      content,
-      postImageUrl,
-      authorId: req.user.userId,
-    });
-
-    const response = await post.save();
-    res.json({ message: response });
+    const { posts } = req.body;
+    const response = await Post.insertMany(posts);
+    res.json(response);
   } catch (error) {
     next(error);
   }
@@ -91,7 +79,7 @@ async function deletePost(req, res, next) {
 }
 
 module.exports = {
-    addPost,
+    addPosts,
     getAllPosts,
     getPostById,
     toggleLikePost,
