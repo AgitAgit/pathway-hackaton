@@ -26,7 +26,7 @@ async function getProfessions(req, res, next) {
 
 async function getProfessionsMinimal(req, res, next) {
     try {
-        const professions = await Profession.find({},{name:1, _id:1});
+        const professions = await Profession.find({},{name:1, _id:1, requiredTrainingIds:1});
         res.json(professions);
     } catch (error) {
         next(error);

@@ -1,6 +1,17 @@
 const Training = require('../models/trainingModel.js');
 
-module.exports = { getAllTraining, getAllTrainingMinimal };
+module.exports = { getAllTraining, getAllTrainingMinimal, addTraining };
+
+async function addTraining(req, res, next){
+    try{
+        const { training } = req.body;
+        const result = await Training.insertMany(training);
+        res.json(result);
+    } catch (error) {
+        next(error)
+    }
+}
+
 
 async function getAllTraining(req, res, next){
     try{

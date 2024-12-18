@@ -1,18 +1,40 @@
 import { useState } from "react";
+import styles from "./Forum.module.css";
 
 export default function Forum() {
   const [posts, setPosts] = useState([]);
+  const [selectedPost, setSelectedPost] = useState(null);
 
   const addPost = (title, content) => {
     const newPost = { id: Date.now(), title, content, comments: [] };
     setPosts([...posts, newPost]);
   };
 
+  const addComment = (postId, comment) => {
+    setPosts((prevPosts) => prevPosts.map((post) => (post.id === postId ? { ...post, comments: [...post.comments, comment] } : post)));
+  };
+
+  const handleSelectPost = (post) => {
+    setSelectedPost(post);
+  };
+
+  const handleBackToPosts = () => {
+    setSelectedPost(null);
+  };
+
   return (
-    <div className="forum">
-      <h1>Forum</h1>
-      <NewPostForm addPost={addPost} />
-      <PostList posts={posts} />
+    <div className={styles.forum}>
+      <h1>פורום</h1>
+      {selectedPost ? (
+        <Thread post={selectedPost} addComment={addComment} onBack={handleBackToPosts} />
+      ) : (
+        <>
+          <NewPostForm addPost={addPost} />
+          <div className={styles.postList}>
+            <PostList posts={posts} onSelectPost={handleSelectPost} />
+          </div>
+        </>
+      )}
     </div>
   );
 }
@@ -31,53 +53,54 @@ function NewPostForm({ addPost }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Post Title"
-      />
-      <textarea
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
-        placeholder="Post Content"
-      ></textarea>
-      <button type="submit">Add Post</button>
+    <form onSubmit={handleSubmit} className={styles.newPostForm}>
+      <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="כותרת" />
+      <textarea value={content} onChange={(e) => setContent(e.target.value)} placeholder="תוכן"></textarea>
+      <button type="submit">הוסף תוכן</button>
     </form>
   );
 }
 
-function PostList({ posts }) {
+function PostList({ posts, onSelectPost }) {
   return (
-    <div>
+    <>
       {posts.map((post) => (
-        <Post key={post.id} post={post} />
+        <div key={post.id} className={styles.post} onClick={() => onSelectPost(post)}>
+          <h2>{post.title}</h2>
+          <p>{post.content}</p>
+        </div>
       ))}
-    </div>
+    </>
   );
 }
 
-function Post({ post }) {
+function Thread({ post, addComment, onBack }) {
+  const [comment, setComment] = useState("");
+
+  const handleAddComment = (e) => {
+    e.preventDefault();
+    if (comment) {
+      addComment(post.id, comment);
+      setComment("");
+    }
+  };
+
   return (
-    <div className="post">
+    <div className={styles.thread}>
+      <button onClick={onBack}>Back to Posts</button>
       <h2>{post.title}</h2>
       <p>{post.content}</p>
-      <CommentList comments={post.comments} />
+      <div className={styles.commentList}>
+        {post.comments.map((comment, index) => (
+          <p key={index} className={styles.comment}>
+            {comment}
+          </p>
+        ))}
+      </div>
+      <form onSubmit={handleAddComment}>
+        <textarea value={comment} onChange={(e) => setComment(e.target.value)} placeholder="Add a comment"></textarea>
+        <button type="submit">Add Comment</button>
+      </form>
     </div>
   );
-}
-
-function CommentList({ comments }) {
-  return (
-    <div>
-      {comments.map((comment, index) => (
-        <Comment key={index} comment={comment} />
-      ))}
-    </div>
-  );
-}
-
-function Comment({ comment }) {
-  return <p>{comment}</p>;
 }
