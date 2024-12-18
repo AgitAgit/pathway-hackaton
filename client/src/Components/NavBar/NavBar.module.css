@@ -13,6 +13,7 @@
 .navbarLeft {
   display: flex;
   justify-content: space-around;
+  height: 50px;
   margin-bottom: 0px;
   gap: 25px;
 }
@@ -21,15 +22,18 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  margin-bottom: 0px;
+
+  height: 50px;
 }
 .logoContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  width: 50px; /* Set the width of the container */
-  height: 50px; /* Set the height of the container */
-  overflow: hidden; /* Prevent content from overflowing the border */
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
 }
 .logo {
   width: 100%;
@@ -38,7 +42,9 @@
 }
 
 .chatBubble {
-  width: 55px;
+  filter: brightness(0) invert(1);
+  width: 50px;
+  height: 50px;
 }
 
 .navbarBurger {
@@ -53,7 +59,7 @@
   right: -250px; /* Initially hidden */
   width: 250px;
   height: 100%;
-  background-color: #222;
+  background-color: #333;
   color: white;
   display: flex;
   flex-direction: column;
@@ -78,6 +84,6 @@
 
 .closeButton {
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.5;
   cursor: pointer;
 }

@@ -5,7 +5,6 @@ import NavBar from "../../Components/NavBar/NavBar";
 function Article() {
   return (
     <div>
-      I AM ATRICLE
       <NavBar />
       <Outlet />
     </div>

@@ -1,14 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./NavBar.module.css";
-import chatBubble from "../../Assets/comment1.png";
+import chatBubble from "../../Assets/dialogue(1).png";
 import logo from "../../Assets/Screenshot 2024-12-18 114605.png";
 
 function NavBar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const sidebarRef = useRef(null);
 
   const toggleSidebar = () => {
     setIsSidebarOpen((prevState) => !prevState);
   };
+
+  // Handle clicks outside the sidebar to close it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isSidebarOpen && sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setIsSidebarOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isSidebarOpen]);
 
   return (
     <>
@@ -27,7 +43,7 @@ function NavBar() {
       </nav>
 
       {/* Sidebar */}
-      <div className={`${styles.sidebar} ${isSidebarOpen ? styles.sidebarOpen : ""}`}>
+      <div className={`${styles.sidebar} ${isSidebarOpen ? styles.sidebarOpen : ""}`} ref={sidebarRef}>
         <span className={styles.closeButton} onClick={toggleSidebar}>
           &times;
         </span>
