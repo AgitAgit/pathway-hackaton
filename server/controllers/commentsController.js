@@ -1,6 +1,38 @@
-// const Comment = require("../models/commentModel.js");
-// const Post = require("../models/postModel.js");
-// const User = require("../models/userModel.js");
+const Comment = require("../models/commentModel.js");
+const Post = require("../models/postModel.js");
+const User = require("../models/userModel.js");
+
+module.exports = { getAllComments, addComments }
+
+async function getAllComments(req, res, next) {
+    try {
+        const comments = await Comment.find();
+        res.json(comments);
+    } catch (error) {
+        next(error)
+    }
+}
+
+async function addComments(req, res, next) {
+    try {
+        const { postName, username, comments } = req.body;
+        const post = await Post.findOne({ name: postName });
+        const user = await User.findOne({ username: username });
+        comments.forEach(comment => {
+            comment.parentPostId = post._id;
+            comment.authorId = user._id;
+        });
+        const response = await Comment.insertMany(comments);
+        response.forEach(newComment => {
+            post.commentIds.push(newComment._id);
+        })
+        const result = await post.save();
+        res.json(result, response);
+    } catch (error) {
+        next(error);
+    }
+}
+
 
 // //path params:postId
 // //query params:none
@@ -22,7 +54,7 @@
 
 // //path params:none
 // //query params:none
-// /*example request body:{ 
+// /*example request body:{
 //   "parentPostId":"674444e4810707ebc8505bb2",
 //   "content": "test3",
 //   "authorId":"67432e35d9cabb6b21047e40"

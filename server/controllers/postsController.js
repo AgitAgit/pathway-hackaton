@@ -5,16 +5,19 @@ const Forum = require("../models/forumModel.js");
 //the body expects forumName, username, posts:[{title, content}]
 async function addPosts(req, res, next) {
   try {
-    const { forumName, username} = req.body;
-    const { posts } = req.body;
+    const { forumName, username, posts} = req.body;
     const forum = await Forum.findOne({name:forumName});
     const user = await User.findOne({username:username});
-    posts.foreach(post => {
+    posts.forEach(post => {
       post.parentForumId = forum._id;
       post.authorId = user._id;
     });
     const response = await Post.insertMany(posts);
-    res.json(response);
+    response.forEach(newPost => {
+      forum.postIds.push(newPost._id);
+    })
+    const result = await forum.save();
+    res.json(result, response);
   } catch (error) {
     next(error);
   }
@@ -49,7 +52,7 @@ async function getAllPosts(req, res, next) {
   try {
       // const limit = req.query.limit || 18;
       // const offset = req.query.offset || 0;
-      const posts = await Post.find();
+      const posts = await Post.find().populate("parentForumId").populate("authorId");
       //   .skip(offset)
       //   .limit(limit)
       //   .populate({

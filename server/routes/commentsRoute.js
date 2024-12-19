@@ -1,14 +1,15 @@
-// const express = require("express");
-// const {
-//   addComment,
-//   getPostComments,
-//   toggleCommentLike,
-//   updateComment,
-//   deleteComment,
-// } = require("../controllers/commentsController.js");
+const express = require("express");
+const {
+  getAllComments,
+  addComments
+} = require("../controllers/commentsController.js");
 // const { authUser } = require("../middleware/authUser.js");
 
-// const router = express.Router();
+const router = express.Router();
+
+router.get('/', getAllComments);
+
+router.post('/', addComments);
 
 // router.post("/:postId", authUser, addComment);
 
@@ -20,4 +21,4 @@
 
 // router.delete("/:commentId", authUser, deleteComment);
 
-// module.exports = router;
+module.exports = router;
