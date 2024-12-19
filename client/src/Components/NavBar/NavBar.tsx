@@ -204,7 +204,7 @@ function NavBar({ isLogin, setIsLogin }) {
         </Link>
         {isLogin ? (
           <span className={styles.sidebarLink} onClick={handleLogout}>
-            התנתקות
+            התנתק
           </span>
         ) : (
           <Link

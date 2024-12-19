@@ -6,7 +6,8 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../store/slices/userSlice.tsx";
 import styles from "./Article.module.css";
 
-function Article({ setIsLogin, isLogin }) {
+function Article({ setCategoryName, setIsLogin, isLogin }) {
+  setCategoryName("");
   const dispatch = useDispatch();
 
   useEffect(() => {

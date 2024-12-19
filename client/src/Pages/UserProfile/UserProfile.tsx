@@ -6,7 +6,6 @@ import EditProfileDialog from "../../Components/EditProfile/EditProfile";
 
 const UserProfile = () => {
   const userData = useSelector((state) => state.user.user);
-  console.log(userData);
 
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
 
