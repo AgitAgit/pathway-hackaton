@@ -40,7 +40,7 @@ const fetchData = async () => {
   }
 };
 
-function SearchProfession({ setProfession, categoryName }) {
+function SearchProfession({ setProfession, categoryName, setCategoryName }) {
   const [professions, setProfessions] = useState("");
   const [category, setCategory] = useState("");
   const [minSalary, setMinSalary] = useState(0);
@@ -71,6 +71,7 @@ function SearchProfession({ setProfession, categoryName }) {
         setProfessions(res);
       });
     }
+    return setCategoryName("");
   }, []);
 
   const handleSearch = async (ev) => {

@@ -33,7 +33,7 @@
 
 .logInInput {
     width: 100%;
-    padding: 15px;
+    padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -42,6 +42,9 @@
     font-size: 1rem;
     outline: none;
     transition: all 0.3s ease;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 600;
 }
 
 .logInInput:focus {
@@ -134,4 +137,5 @@ input[type="password"] {
     border: 1px solid #ccc;
     border-radius: 4px;
     max-height: 60px;
+    text-align: center;
 }
