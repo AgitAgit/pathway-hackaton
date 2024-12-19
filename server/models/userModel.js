@@ -28,21 +28,26 @@ const userSchema = new mongoose.Schema(
     },
     highSchoolGraduate: {
       type: Boolean,
-      required: false
+      required: false,
+      default: true
     },
     averageBagrutScore: {
       type: Number,
-      required: false
+      required: false,
+      default: 75
     },
     psychometricScore: {
       type: Number,
-      required: false
+      required: false,
+      default: 580
     },
     wantedSalary: {
-      type: Number
+      type: Number,
+      default:8000
     },
     wantedWeeklyHours: {
-      type: Number
+      type: Number,
+      default:40
     },
     personality: [
       {
