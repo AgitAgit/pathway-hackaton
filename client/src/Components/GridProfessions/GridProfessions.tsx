@@ -58,12 +58,18 @@ const GridProfessions: React.FC<{
     const isFavorite = favoriteProfessions.some(
       (fav) => fav.name === profession.name
     );
+    const isFavoriteIndex = favoriteProfessions.findIndex(
+      (fav) => fav.name === profession.name
+    );
 
     let updatedFavorites;
     if (isFavorite) {
       updatedFavorites = favoriteProfessions.filter(
         (fav) => fav.name !== profession.name
       );
+      console.log(isFavorite);
+
+      setFavoriteProfessions((prev) => prev.filter((prof) => prof));
     } else {
       updatedFavorites = [...favoriteProfessions, profession];
     }
