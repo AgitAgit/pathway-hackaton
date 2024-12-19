@@ -49,13 +49,11 @@ const SignUp = () => {
         );
         navigate("/login");
       } else {
-        setFailedText(
-          response.data.message || "An error occurred during sign-up."
-        );
+        setFailedText(response.data.message || "הייתה בעיה במהלך ההרשמה.");
       }
     } catch (error) {
-      console.error("Error during sign-up:", error);
-      setFailedText("An error occurred during sign-up.");
+      console.error("שגיאה במהלך ההרשמה:", error);
+      setFailedText("הייתה בעיה במהלך ההרשמה.");
     }
   };
 

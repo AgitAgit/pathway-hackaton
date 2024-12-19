@@ -47,13 +47,11 @@ const LogIn = ({ isLogin, setIsLogin }) => {
         navigate("/");
         setIsLogin(true);
       } else {
-        setFailedLogText(
-          response.data.message || "An error occurred during login."
-        );
+        setFailedLogText(response.data.message || "הייתה בעיה במהלך ההתחברות.");
       }
     } catch (error) {
-      console.error("Error during login:", error);
-      setFailedLogText("An error occurred during login.");
+      console.error("שגיאה במהלך ההתחברות:", error);
+      setFailedLogText("הייתה בעיה במהלך ההתחברות.");
     }
   };
 

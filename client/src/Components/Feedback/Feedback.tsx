@@ -2,8 +2,8 @@ import { useState } from "react";
 import styles from "./Feedback.module.css";
 
 function Feedback() {
-  const [helpfulCount, setHelpfulCount] = useState(0);
-  const [notHelpfulCount, setNotHelpfulCount] = useState(0);
+  const [helpfulCount, setHelpfulCount] = useState(12);
+  const [notHelpfulCount, setNotHelpfulCount] = useState(15);
   const [hasVoted, setHasVoted] = useState(false);
 
   const handleHelpfulClick = () => {
