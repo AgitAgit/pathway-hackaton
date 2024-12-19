@@ -146,6 +146,7 @@ function NavBar({ isLogin, setIsLogin }) {
   const handleLogout = () => {
     dispatch(removeUser());
     setIsLogin(false);
+    sessionStorage.removeItem("username");
   };
 
   useEffect(() => {
