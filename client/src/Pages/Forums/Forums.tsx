@@ -6,7 +6,7 @@ import axios from "axios";
 
 //get logged in user data
 //fetch forums function
-//create forum function
+
 // const response = await axios.post(
 //     "http://localhost:3000/api/users/login",
 //     {
@@ -37,6 +37,10 @@ function Forums({}){
         } catch (error) {
             
         }
+    }
+
+    async function addPost(forumName, postTitle,){
+
     }
 
     return<>
