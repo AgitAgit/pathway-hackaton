@@ -95,7 +95,7 @@
 .sidebarLink {
   text-decoration: none;
   color: white;
-  margin-bottom: 0.8rem;
+  margin-bottom: 2pz;
   transition: color 0.3s ease;
 }
 
@@ -104,7 +104,7 @@
 }
 
 .closeButton {
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   font-size: 1.5;
   cursor: pointer;
 }
