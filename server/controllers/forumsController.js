@@ -14,7 +14,7 @@ async function addForums(req, res, next){
 
 async function getAllForums(req, res, next){
     try {
-        const forums = await Forum.find();
+        const forums = await Forum.find().populate("postIds");
         res.json(forums);
     } catch (error) {
         next(error);

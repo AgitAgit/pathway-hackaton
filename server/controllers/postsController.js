@@ -1,9 +1,18 @@
 const Post = require("../models/postModel.js");
 const User = require("../models/userModel.js");
+const Forum = require("../models/forumModel.js");
 
+//the body expects forumName, username, posts:[{title, content}]
 async function addPosts(req, res, next) {
   try {
+    const { forumName, username} = req.body;
     const { posts } = req.body;
+    const forum = await Forum.findOne({name:forumName});
+    const user = await User.findOne({username:username});
+    posts.foreach(post => {
+      post.parentForumId = forum._id;
+      post.authorId = user._id;
+    });
     const response = await Post.insertMany(posts);
     res.json(response);
   } catch (error) {
