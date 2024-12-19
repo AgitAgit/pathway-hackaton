@@ -16,20 +16,46 @@ import axios from "axios";
 //create comment function
 
 function Forums({}){
+    const [forums, setForums] = useState(null);
     const user = useSelector((state) => state.user.user);
     console.log(user);
+    
+    useEffect(() => {
+        if(forums === null){
+            getForumsData();
+        }
+        console.log("use effect says:",forums);
+    },[forums]);
 
     async function getForumsData(){
         try {
-            const response = await axios.get(
-                "http://localhost:3000/api/forums");
+            const forumsArray = await axios.get("http://localhost:3000/api/forums");
+            setForums(forumsArray.data);
+            // console.log(forumsArray);
         } catch (error) {
             
         }
     }
 
     return<>
-
+        {forums && forums.map(forum => {
+            return <div>
+                <h2>{forum.name}</h2>
+                {forum.postIds.map(post => {
+                    return <div>
+                        <h4>{post.title}</h4>
+                        <span>{post.content}</span>
+                        {post.commentIds.map(comment => {
+                            return <div>
+                                <span>{comment.authorId.username}:{comment.authorId.role}</span>
+                                <br></br>
+                                <span>{comment.commentContent}</span>
+                            </div>
+                        })}
+                    </div>
+                })}
+            </div>
+        })}
     </>
 }
 
