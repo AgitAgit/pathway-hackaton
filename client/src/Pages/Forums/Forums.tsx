@@ -1,13 +1,19 @@
 import styles from "./Forums.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { addPost, addComment } from "./forumUtils";
+import AddPostForm from "./AddPostForm.tsx";
 
 function Forums() {
   const [forums, setForums] = useState(null);
   const [openForum, setOpenForum] = useState(null);
   const [openPost, setOpenPost] = useState(null);
+  const [dumbToggle, setDumbToggle] = useState(false);
   const user = useSelector((state) => state.user.user);
+  const postTitleRef = useRef();
+  const postContentRef = useRef();
+
 
   useEffect(() => {
     if (forums === null) {
@@ -19,6 +25,7 @@ function Forums() {
     try {
       const forumsArray = await axios.get("http://localhost:3000/api/forums");
       setForums(forumsArray.data);
+      return forumsArray.data;
     } catch (error) {
       console.error(error);
     }
@@ -33,6 +40,11 @@ function Forums() {
     setOpenPost(openPost === postId ? null : postId);
   };
 
+  async function handleAddPostClick(forumName:String, title:String, content:String){
+    await addPost(user.username, forumName, {title, content})
+    const data = await getForumsData();
+    setForums(data);
+  }
   return (
     <div className={styles.forumContainer}>
       <h1 className={styles.forumHeader}>פורומים</h1>
@@ -46,6 +58,7 @@ function Forums() {
             }}
           >
             <h2 onClick={() => toggleForum(forum._id)}>{forum.name}</h2>
+            <AddPostForm forumName={forum.name} handleAddPostClick={handleAddPostClick}/>
             {openForum === forum._id && (
               <div>
                 {forum.postIds.map((post) => (
