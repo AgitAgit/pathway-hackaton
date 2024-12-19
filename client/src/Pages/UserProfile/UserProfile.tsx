@@ -62,7 +62,7 @@ const UserProfile = () => {
         </ul>
       </div>
 
-      <button onClick={handleEditProfileClick}>Edit Profile</button>
+      <button onClick={handleEditProfileClick}>ערוך פרופיל</button>
 
       {isEditDialogOpen && (
         <EditProfileDialog
