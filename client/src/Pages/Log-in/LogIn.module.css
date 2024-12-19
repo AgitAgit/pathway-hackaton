@@ -129,6 +129,5 @@ input[type="password"] {
     margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 0rem;
     max-height: 60px;
 }
