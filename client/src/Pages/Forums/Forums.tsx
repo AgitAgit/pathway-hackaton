@@ -29,7 +29,7 @@ function Forums() {
         console.log("use effect says:", forums);
     }, [forums]);
 
-    async function addPost(forumName, postTitle,) {
+    async function addPost(forumName, postTitle, postContent) {
 
     }
 
