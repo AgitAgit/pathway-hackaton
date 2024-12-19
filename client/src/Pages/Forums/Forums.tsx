@@ -1,6 +1,8 @@
+import styles from './Forums.module.css';
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
+
 
 //get logged in user data
 //fetch forums function
