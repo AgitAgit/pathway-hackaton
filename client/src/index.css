@@ -4,13 +4,14 @@
 
 body,
 html {
-  box-sizing: border-box;
   height: 100%;
   direction: rtl;
+  box-sizing: border-box;
   text-align: right;
 }
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
