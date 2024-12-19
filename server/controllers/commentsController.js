@@ -16,7 +16,7 @@ async function getAllComments(req, res, next) {
 async function addComments(req, res, next) {
     try {
         const { postName, username, comments } = req.body;
-        const post = await Post.findOne({ name: postName });
+        const post = await Post.findOne({ title: postName });
         const user = await User.findOne({ username: username });
         comments.forEach(comment => {
             comment.parentPostId = post._id;
