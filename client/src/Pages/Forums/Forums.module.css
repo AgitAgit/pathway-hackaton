@@ -1,50 +1,70 @@
 .forumContainer {
-    font-family: 'Arial', sans-serif;
-    background-color: #121212;
-    color: #fff;
-    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #F5F5F5;
+    color: #333;
+    padding: 30px;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .forumHeader {
     text-align: center;
     font-size: 2.5rem;
-    color: #FF5722;
-    margin-bottom: 30px;
+    color: #FF6F61;
+    margin-bottom: 50px;
+    font-weight: 700;
 }
 
 .forumCard {
-    background-color: #1E1E1E;
-    border-radius: 8px;
-    padding: 20px;
+    cursor: pointer;
+    background-color: #FFF;
+    border-radius: 15px;
+    padding: 25px;
     margin-bottom: 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 85%;
+    max-width: 700px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.forumCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .forumCard h2 {
     font-size: 2rem;
-    color: #FF5722;
-    margin-bottom: 10px;
+    color: #FF6F61;
+    margin-bottom: 20px;
+    font-weight: 600;
 }
 
 .postCard {
-    background-color: #262626;
-    border-radius: 8px;
+    background-color: #F9F9F9;
+    border-radius: 12px;
     margin-bottom: 20px;
-    padding: 15px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.postCard:hover {
+    transform: translateY(-3px);
 }
 
 .postCard h4 {
-    font-size: 1.5rem;
-    color: #FF9800;
-    margin-bottom: 10px;
+    font-size: 1.6rem;
+    color: #FF7043;
+    margin-bottom: 15px;
+    font-weight: 500;
 }
 
 .postContent {
-    font-size: 1rem;
-    color: #bbb;
-    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
 }
 
 .commentSection {
@@ -52,40 +72,45 @@
 }
 
 .comment {
-    background-color: #333;
-    border-radius: 8px;
+    background-color: #FAFAFA;
+    border-radius: 12px;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .commentHeader {
-    color: #FFEB3B;
-    font-weight: bold;
+    color: #FF7043;
+    font-weight: 600;
     margin-bottom: 5px;
+    font-size: 1.05rem;
 }
 
 .commentContent {
-    color: #ddd;
-    font-size: 0.9rem;
+    color: #777;
+    font-size: 1.05rem;
 }
 
+
 .userBadge {
-    color: #FFEB3B;
-    font-weight: bold;
+    color: #FF7043;
+    font-weight: 600;
 }
 
 .button {
-    background-color: #FF5722;
+    background-color: #FF6F61;
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 4px;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border-radius: 30px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-top: 15px;
+    text-transform: uppercase;
 }
 
 .button:hover {
-    background-color: #FF7043;
+    background-color: #FF3D2D;
 }
