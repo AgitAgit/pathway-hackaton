@@ -1,73 +1,254 @@
 const skillsOptions = [
-  { value: "communication", label: "תקשורת" },
-  { value: "teamwork", label: "עבודת צוות" },
-  { value: "problemSolving", label: "פתרון בעיות" },
-  { value: "timeManagement", label: "ניהול זמן" },
-  { value: "leadership", label: "מנהיגות" },
-  { value: "adaptability", label: "גמישות" },
-  { value: "creativity", label: "יצירתיות" },
-  { value: "criticalThinking", label: "חשיבה ביקורתית" },
-  { value: "negotiation", label: "משא ומתן" },
-  { value: "conflictResolution", label: "פתרון קונפליקטים" },
-  { value: "decisionMaking", label: "קבלת החלטות" },
-  { value: "presentation", label: "הצגה" },
-  { value: "projectManagement", label: "ניהול פרויקטים" },
-  { value: "customerService", label: "שירות לקוחות" },
-  { value: "sales", label: "מכירות" },
-  { value: "marketing", label: "שיווק" },
-  { value: "finance", label: "פיננסים" },
-  { value: "dataAnalysis", label: "ניתוח נתונים" },
-  { value: "research", label: "מחקר" },
-  { value: "teaching", label: "הוראה" },
+  {
+    skill: "תקשורת",
+    description: "יכולת לתקשר בצורה ברורה ומובנת",
+  },
+  {
+    skill: "עבודת צוות",
+    description: "יכולת לעבוד בצורה שיתופית עם אחרים",
+  },
+  {
+    skill: "פתרון בעיות",
+    description: "יכולת לזהות בעיות ולמצוא פתרונות יצירתיים",
+  },
+  {
+    skill: "ניהול זמן",
+    description: "יכולת לארגן ולהקצות זמן בצורה יעילה",
+  },
+  {
+    skill: "מנהיגות",
+    description: "יכולת להנחות ולהוביל אחרים בהצלחה",
+  },
+  {
+    skill: "גמישות",
+    description: "יכולת להסתגל לשינויים בסביבה או במצבים שונים",
+  },
+  {
+    skill: "יצירתיות",
+    description: "יכולת לחשוב בצורה חדשנית ולהביא רעיונות מקוריים",
+  },
+  {
+    skill: "חשיבה ביקורתית",
+    description: "יכולת להעריך מידע ולבצע ניתוח מדויק",
+  },
+  {
+    skill: "משא ומתן",
+    description: "יכולת לנהל שיחות למען הסכמות והסכמים",
+  },
+  {
+    skill: "פתרון קונפליקטים",
+    description: "יכולת להתמודד עם בעיות ולמצוא דרכים לפתרונן",
+  },
+  {
+    skill: "קבלת החלטות",
+    description: "יכולת לקבל החלטות בזמן ובצורה נכונה",
+  },
+  {
+    skill: "הצגה",
+    description: "יכולת להציג מידע בצורה ברורה ומובנת",
+  },
+  {
+    skill: "ניהול פרויקטים",
+    description: "יכולת לנהל ולהוביל פרויקטים בהצלחה",
+  },
+  {
+    skill: "שירות לקוחות",
+    description: "יכולת לתת שירות מעולה ולספק פתרונות ללקוחות",
+  },
+  {
+    skill: "מכירות",
+    description: "יכולת למכור מוצרים ושירותים בצורה משכנעת",
+  },
+  {
+    skill: "שיווק",
+    description: "יכולת לקדם ולמכור מוצר או שירות בשוק",
+  },
+  {
+    skill: "פיננסים",
+    description: "יכולת לנהל כספים ולהבין מושגים פיננסיים",
+  },
+  {
+    skill: "ניתוח נתונים",
+    description: "יכולת לנתח נתונים ולהפיק מהם תובנות",
+  },
+  {
+    skill: "מחקר",
+    description: "יכולת לבצע מחקר מעמיק ולהוציא ממנו מסקנות",
+  },
+  {
+    skill: "הוראה",
+    description: "יכולת ללמד ולהעביר ידע בצורה ברורה ומועילה",
+  },
 ];
 
 const abilitiesOptions = [
-  { value: "multitasking", label: "ריבוי משימות" },
-  { value: "attentionToDetail", label: "תשומת לב לפרטים" },
-  { value: "empathy", label: "אמפתיה" },
-  { value: "resilience", label: "חוסן נפשי" },
-  { value: "selfMotivation", label: "מוטיבציה עצמית" },
-  { value: "selfDiscipline", label: "משמעת עצמית" },
-  { value: "initiative", label: "יוזמה" },
-  { value: "stressManagement", label: "ניהול לחץ" },
-  { value: "organizationalSkills", label: "כישורים ארגוניים" },
-  { value: "interpersonalSkills", label: "כישורים בין-אישיים" },
-  { value: "emotionalIntelligence", label: "אינטליגנציה רגשית" },
-  { value: "selfConfidence", label: "ביטחון עצמי" },
-  { value: "flexibility", label: "גמישות" },
-  { value: "workEthic", label: "אתיקה מקצועית" },
-  { value: "problemSensitivity", label: "רגישות לבעיות" },
-  { value: "selfAwareness", label: "מודעות עצמית" },
-  { value: "selfRegulation", label: "ויסות עצמי" },
-  { value: "optimism", label: "אופטימיות" },
-  { value: "perseverance", label: "התמדה" },
-  { value: "curiosity", label: "סקרנות" },
+  {
+    ability: "ריבוי משימות",
+    description: "יכולת לבצע מספר משימות בו זמנית בצורה יעילה",
+  },
+  {
+    ability: "תשומת לב לפרטים",
+    description: "יכולת להבחין בפרטים קטנים ולהתמקד בהם",
+  },
+  {
+    ability: "אמפתיה",
+    description: "יכולת להבין ולהרגיש את רגשותיהם של אחרים",
+  },
+  {
+    ability: "חוסן נפשי",
+    description: "יכולת להתמודד עם אתגרים ומצבים קשים בצורה חיובית",
+  },
+  {
+    ability: "מוטיבציה עצמית",
+    description: "יכולת להניע את עצמך להשגת מטרות",
+  },
+  {
+    ability: "משמעת עצמית",
+    description: "יכולת לפעול לפי כללים ולהימנע מהסחות דעת",
+  },
+  {
+    ability: "יוזמה",
+    description: "יכולת להניע רעיונות ולפעול באופן עצמאי",
+  },
+  {
+    ability: "ניהול לחץ",
+    description: "יכולת להתמודד ולהישאר אפקטיבי במצבים מלחיצים",
+  },
+  {
+    ability: "כישורים ארגוניים",
+    description: "יכולת לנהל זמן ומשאבים בצורה מסודרת",
+  },
+  {
+    ability: "כישורים בין-אישיים",
+    description: "יכולת לתקשר ולהבין אחרים בצורה חיובית",
+  },
+  {
+    ability: "אינטליגנציה רגשית",
+    description: "יכולת לזהות, להבין ולשלוט ברגשותיך ובשל אחרים",
+  },
+  {
+    ability: "ביטחון עצמי",
+    description: "יכולת להאמין ביכולות ובכישורים שלך",
+  },
+  {
+    ability: "גמישות",
+    description: "יכולת להסתגל לשינויים ולמצבים חדשים",
+  },
+  {
+    ability: "אתיקה מקצועית",
+    description: "יכולת לשמור על ערכים מקצועיים בעבודה",
+  },
+  {
+    ability: "רגישות לבעיות",
+    description:
+      "יכולת לזהות בעיות פוטנציאליות ולפעול לפני שהן הופכות למשמעותיות",
+  },
+  {
+    ability: "מודעות עצמית",
+    description:
+      "יכולת להבין את עצמך, את רגשותיך ואת הדרך בה אתה משפיע על אחרים",
+  },
+  {
+    ability: "ויסות עצמי",
+    description: "יכולת לשלוט ברגשותיך ובתגובותיך במצבים שונים",
+  },
+  {
+    ability: "אופטימיות",
+    description: "יכולת לראות את החיוביות וההזדמנויות במצבים מאתגרים",
+  },
+  {
+    ability: "התמדה",
+    description: "יכולת להמשיך לפעול למרות מכשולים וקושי",
+  },
+  {
+    ability: "סקרנות",
+    description: "יכולת לשאול שאלות ולחפש תשובות ולהתעניין בנושאים חדשים",
+  },
 ];
 
 const trainingOptions = [
-  { value: "projectManagement", label: "ניהול פרויקטים" },
-  { value: "digitalMarketing", label: "שיווק דיגיטלי" },
-  { value: "dataScience", label: "מדעי הנתונים" },
-  { value: "graphicDesign", label: "עיצוב גרפי" },
-  { value: "webDevelopment", label: "פיתוח אתרים" },
-  { value: "cyberSecurity", label: "אבטחת סייבר" },
-  { value: "businessAdministration", label: "מנהל עסקים" },
-  { value: "finance", label: "פיננסים" },
-  { value: "humanResources", label: "משאבי אנוש" },
-  { value: "law", label: "משפטים" },
-  { value: "medicine", label: "רפואה" },
-  { value: "engineering", label: "הנדסה" },
-  { value: "education", label: "חינוך" },
-  { value: "psychology", label: "פסיכולוגיה" },
-  { value: "architecture", label: "אדריכלות" },
-  { value: "marketing", label: "שיווק" },
-  { value: "sales", label: "מכירות" },
-  { value: "communication", label: "תקשורת" },
-  { value: "computerScience", label: "מדעי המחשב" },
-  { value: "biology", label: "ביולוגיה" },
+  {
+    training: "ניהול פרויקטים",
+    description: "יכולת לתכנן ולנהל פרויקטים בצורה יעילה",
+  },
+  {
+    training: "שיווק דיגיטלי",
+    description: "יכולת לקדם מוצרים ושירותים באמצעות כלים דיגיטליים",
+  },
+  {
+    training: "מדעי הנתונים",
+    description: "יכולת לנתח נתונים ולהפיק מהם תובנות",
+  },
+  {
+    training: "עיצוב גרפי",
+    description: "יכולת לעצב גרפיקה ויזואלית עבור פרויקטים שונים",
+  },
+  {
+    training: "פיתוח אתרים",
+    description: "יכולת לפתח ולתחזק אתרי אינטרנט",
+  },
+  {
+    training: "אבטחת סייבר",
+    description: "יכולת להגן על מערכות ממוחשבות ונתונים מפני איומים",
+  },
+  {
+    training: "מנהל עסקים",
+    description: "יכולת לנהל ולהוביל עסק או ארגון בצורה מקצועית",
+  },
+  {
+    training: "פיננסים",
+    description: "יכולת להבין ולהתנהל בתחום הכספים וההשקעות",
+  },
+  {
+    training: "משאבי אנוש",
+    description: "יכולת לנהל את העובדים בארגון ולהתאים אותם לצרכים השונים",
+  },
+  {
+    training: "משפטים",
+    description: "יכולת להבין ולפרש חוקים ותקנות בתחום המשפט",
+  },
+  {
+    training: "רפואה",
+    description: "יכולת להעניק טיפול רפואי ולטפל בבעיות בריאות",
+  },
+  {
+    training: "הנדסה",
+    description: "יכולת לעצב ולבנות מערכות או מכונות טכנולוגיות",
+  },
+  {
+    training: "חינוך",
+    description: "יכולת ללמד ולהעביר ידע בתחומים שונים",
+  },
+  {
+    training: "פסיכולוגיה",
+    description: "יכולת להבין את התנהגות האדם ולספק תמיכה רגשית",
+  },
+  {
+    training: "אדריכלות",
+    description: "יכולת לתכנן ולעצב מבנים ומרחבים",
+  },
+  {
+    training: "שיווק",
+    description: "יכולת לקדם ולמכור מוצרים ושירותים בשוק",
+  },
+  {
+    training: "מכירות",
+    description: "יכולת לשווק ולמכור בצורה אפקטיבית",
+  },
+  {
+    training: "תקשורת",
+    description: "יכולת להעביר מידע בצורה ברורה ומובנת",
+  },
+  {
+    training: "מדעי המחשב",
+    description: "יכולת לתכנן ולפתח מערכות תוכנה ומחשבים",
+  },
+  {
+    training: "ביולוגיה",
+    description: "יכולת להבין את מבנה ותפקוד האורגניזמים החיים",
+  },
 ];
 
-// EditProfileDialog.js
 import { useEffect, useState } from "react";
 import Select from "react-select";
 import styles from "./EditProfileDialog.module.css";
@@ -87,6 +268,21 @@ const EditProfileDialog = ({ onClose, setmakeToCheck }) => {
   const [username, setUsername] = useState(userProfile?.username || "");
   const [age, setAge] = useState(userProfile?.age || "");
   const [role, setRole] = useState(userProfile?.role || "");
+  const [averageBagrutScore, setAverageBagrutScore] = useState(
+    userProfile?.averageBagrutScore || ""
+  );
+  const [psychometricScore, setPsychometricScore] = useState(
+    userProfile?.psychometricScore || ""
+  );
+  const [wantedSalary, setWantedSalary] = useState(
+    userProfile?.wantedSalary || ""
+  );
+  const [wantedWeeklyHours, setWantedWeeklyHours] = useState(
+    userProfile?.wantedWeeklyHours || ""
+  );
+  const [highSchoolGraduate, setHighSchoolGraduate] = useState(
+    userProfile?.highSchoolGraduate || false
+  );
   const [skills, setSkills] = useState(userProfile?.skills || []);
   const [abilities, setAbilities] = useState(userProfile?.abilities || []);
   const [training, setTraining] = useState(userProfile?.training || []);
@@ -97,10 +293,17 @@ const EditProfileDialog = ({ onClose, setmakeToCheck }) => {
       username,
       age: +age,
       role,
+      averageBagrutScore,
+      psychometricScore,
+      wantedSalary,
+      wantedWeeklyHours,
+      highSchoolGraduate,
       skills,
       abilities,
       training,
     };
+
+    console.log(userWithNewData);
 
     try {
       const response = await axios.patch("http://localhost:3000/api/users", {
@@ -108,7 +311,6 @@ const EditProfileDialog = ({ onClose, setmakeToCheck }) => {
       });
 
       if (response.status === 201) {
-        // Dispatch the updated user profile to Redux store
         dispatch(setUser(userWithNewData));
         onClose();
         setmakeToCheck((prev) => !prev);
@@ -124,14 +326,6 @@ const EditProfileDialog = ({ onClose, setmakeToCheck }) => {
       <div className={styles.dialogContent}>
         <h2>ערוך פרופיל</h2>
         {failedText && <p className={styles.errorText}>{failedText}</p>}
-        <div className={styles.formGroup}>
-          <label>שם משתמש:</label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
         <div className={styles.formGroup}>
           <label>גיל:</label>
           <input
@@ -149,6 +343,47 @@ const EditProfileDialog = ({ onClose, setmakeToCheck }) => {
           />
         </div>
         <div className={styles.formGroup}>
+          <label>בגרות ממוצעת:</label>
+          <input
+            type="text"
+            value={averageBagrutScore}
+            onChange={(e) => setAverageBagrutScore(e.target.value)}
+          />
+        </div>
+        <div className={styles.formGroup}>
+          <label>ציון פסיכומטרי:</label>
+          <input
+            type="text"
+            value={psychometricScore}
+            onChange={(e) => setPsychometricScore(e.target.value)}
+          />
+        </div>
+        <div className={styles.formGroup}>
+          <label>שכר מבוקש:</label>
+          <input
+            type="text"
+            value={wantedSalary}
+            onChange={(e) => setWantedSalary(e.target.value)}
+          />
+        </div>
+        <div className={styles.formGroup}>
+          <label>שעות שבועיות מבוקשות:</label>
+          <input
+            type="text"
+            value={wantedWeeklyHours}
+            onChange={(e) => setWantedWeeklyHours(e.target.value)}
+          />
+        </div>
+        <div className={styles.formGroup}>
+          <label>השכלה תיכונית</label>
+          <input
+            className={styles.checkBox}
+            type="checkbox"
+            checked={highSchoolGraduate}
+            onChange={(e) => setHighSchoolGraduate(e.target.checked)}
+          />
+        </div>
+        {/* <div className={styles.formGroup}>
           <label>יכולות:</label>
           <Select
             isMulti
@@ -175,6 +410,7 @@ const EditProfileDialog = ({ onClose, setmakeToCheck }) => {
         <div className={styles.formGroup}>
           <label>הכשרות:</label>
           <Select
+            className={styles.select}
             isMulti
             options={trainingOptions}
             value={training}
@@ -183,7 +419,7 @@ const EditProfileDialog = ({ onClose, setmakeToCheck }) => {
             getOptionValue={(e) => e.value}
             placeholder="בחר הכשרות"
           />
-        </div>
+        </div> */}
         <div className={styles.dialogActions}>
           <button onClick={handleSave} className={styles.saveButton}>
             שמור
