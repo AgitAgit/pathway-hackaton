@@ -76,7 +76,7 @@ const SignUp = () => {
         <input
           className={styles.signUpInput}
           placeholder="סיסמה..."
-          type="password"
+          type="text"
           id="password"
           value={userData.password}
           onChange={handleChange}

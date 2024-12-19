@@ -74,7 +74,6 @@ const LogIn = ({ isLogin, setIsLogin }) => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <div> </div>
           <span className={styles.eyeIcon} onClick={togglePasswordVisibility}>
             {showPassword ? <FaEyeSlash /> : <FaEye />}
           </span>
