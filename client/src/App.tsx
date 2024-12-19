@@ -23,13 +23,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: (
-        <Article
-          setCategoryName={setCategoryName}
-          isLogin={isLogin}
-          setIsLogin={setIsLogin}
-        />
-      ),
+      element: <Article isLogin={isLogin} setIsLogin={setIsLogin} />,
       children: [
         {
           path: "/",

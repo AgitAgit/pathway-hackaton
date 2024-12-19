@@ -66,6 +66,7 @@ const trainingOptions = [
   { value: "computerScience", label: "מדעי המחשב" },
   { value: "biology", label: "ביולוגיה" },
 ];
+
 // EditProfileDialog.js
 import { useEffect, useState } from "react";
 import Select from "react-select";
