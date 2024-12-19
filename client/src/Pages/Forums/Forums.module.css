@@ -1,1 +1,91 @@
-/* lfjaslff? */
+.forumContainer {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #fff;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.forumHeader {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #FF5722;
+    margin-bottom: 30px;
+}
+
+.forumCard {
+    background-color: #1E1E1E;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.forumCard h2 {
+    font-size: 2rem;
+    color: #FF5722;
+    margin-bottom: 10px;
+}
+
+.postCard {
+    background-color: #262626;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.postCard h4 {
+    font-size: 1.5rem;
+    color: #FF9800;
+    margin-bottom: 10px;
+}
+
+.postContent {
+    font-size: 1rem;
+    color: #bbb;
+    margin-bottom: 15px;
+}
+
+.commentSection {
+    margin-left: 20px;
+}
+
+.comment {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.commentHeader {
+    color: #FFEB3B;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.commentContent {
+    color: #ddd;
+    font-size: 0.9rem;
+}
+
+.userBadge {
+    color: #FFEB3B;
+    font-weight: bold;
+}
+
+.button {
+    background-color: #FF5722;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #FF7043;
+}
