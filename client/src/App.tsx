@@ -10,7 +10,7 @@ import ContactUs from "./Pages/ContactUs/ContactUs.tsx";
 import Categories from "./Pages/Categories/Categories.tsx";
 import Profession from "./Pages/Profession/Profession.tsx";
 import Favorite from "./Pages/Favorite/Favorite.tsx";
-import Forum from "./Pages/Forum/Forum.tsx";
+import Forums from "./Pages/Forums/Forums.tsx";
 import Login from "./Pages/Log-in/LogIn.tsx";
 import SignUp from "./Pages/Sign-up/SignUp.tsx";
 import ChangePassword from "./Pages/ChangePassword/ChangePassword.tsx";
@@ -51,8 +51,8 @@ function App() {
           element: <Favorite setProfession={setProfession} />,
         },
         {
-          path: "/forum",
-          element: <Forum />,
+          path: "/forums",
+          element: <Forums />,
         },
         {
           path: "/userProfile",
