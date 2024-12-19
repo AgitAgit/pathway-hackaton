@@ -35,6 +35,7 @@ function App() {
             <SearchProfession
               categoryName={categoryName}
               setProfession={setProfession}
+              setCategoryName={setCategoryName}
             />
           ),
         },
