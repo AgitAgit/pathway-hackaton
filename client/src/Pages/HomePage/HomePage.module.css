@@ -1,18 +1,19 @@
 .HomePage {
-    padding: 50px;
+  padding: 50px;
 }
 
 .logoContainer {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .logoImg {
-    width: 400px;
+  width: 400px;
 }
 
 .aboutWeb {
-    padding: 20px;
-    text-align: center;
+  padding: 20px;
+  font-size: 35px;
+  text-align: center;
 }

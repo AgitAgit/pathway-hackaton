@@ -60,11 +60,15 @@
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
+    background: black;
+    color: white;
+    background-color: black;
 }
 
+
 .signUpButton:hover {
-    background-color: var(--columbia-blue);
-    color: black;
+    background-color: #e7970b;
+    background: #e7970b;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 

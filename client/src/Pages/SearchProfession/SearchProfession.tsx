@@ -156,10 +156,20 @@ function SearchProfession({ setProfession, categoryName }) {
   };
 
   const toggleProfileFilter = () => {
+    if (!user) {
+      alert("התחבר קודם!");
+      return;
+    }
     setIsProfileFilterOpen((prev) => !prev);
-    setMinSalary(user.wantedSalary);
-    setMaxWeeklyHours(+user.wantedWeeklyHours + 10);
-    setMinWeeklyHours(+user.wantedWeeklyHours - 10);
+    if (isProfileFilterOpen) {
+      setMinSalary(0);
+      setMaxWeeklyHours(100);
+      setMinWeeklyHours(0);
+    } else {
+      setMinSalary(user.wantedSalary);
+      setMaxWeeklyHours(+user.wantedWeeklyHours + 10);
+      setMinWeeklyHours(+user.wantedWeeklyHours - 10);
+    }
   };
 
   return (
