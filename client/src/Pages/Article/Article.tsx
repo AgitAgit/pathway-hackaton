@@ -2,10 +2,10 @@ import styles from "./Article.module.css";
 import { Outlet } from "react-router-dom";
 import NavBar from "../../Components/NavBar/NavBar";
 
-function Article() {
+function Article({ setIsLogin, isLogin }) {
   return (
     <div>
-      <NavBar />
+      <NavBar isLogin={isLogin} setIsLogin={setIsLogin} />
       <div className={styles.article}>
         <Outlet />
       </div>

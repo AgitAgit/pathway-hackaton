@@ -172,7 +172,6 @@ input[type="number"]:focus {
 }
 
 .weeklyHours {
-  /* display: flex; */
   gap: 10px;
 }
 

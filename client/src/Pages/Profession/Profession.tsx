@@ -9,7 +9,7 @@ function Profession({ profession }) {
       <div className={styles.professionSections}>
         <div className={styles.salaryInfo}>
           <h2>נתונים</h2>
-          <p>שכר ממוצע: ${profession.averageSalary.toLocaleString()}</p>
+          <p>שכר ממוצע: ₪{profession.averageSalary.toLocaleString()}</p>
           <p>שעות עבודה שבועיות ממוצעות: {profession.averageWeeklyHours}</p>
         </div>
         <div className={styles.section}>

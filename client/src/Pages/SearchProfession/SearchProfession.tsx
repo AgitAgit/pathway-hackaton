@@ -54,8 +54,6 @@ function SearchProfession({ setProfession, categoryName }) {
   };
 
   useEffect(() => {
-    console.log(categoryName);
-
     if (categoryName) {
       fetchData().then((data) => {
         setCategory(categoryName);

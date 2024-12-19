@@ -11,19 +11,23 @@ import Categories from "./Pages/Categories/Categories.tsx";
 import Profession from "./Pages/Profession/Profession.tsx";
 import Favorite from "./Pages/Favorite/Favorite.tsx";
 import Forum from "./Pages/Forum/Forum.tsx";
+import Login from "./Pages/Log-in/LogIn.tsx";
+import SignUp from "./Pages/Sign-up/SignUp.tsx";
+import ChangePassword from "./Pages/ChangePassword/ChangePassword.tsx";
 
 function App() {
   const [profession, setProfession] = useState({});
   const [categoryName, setCategoryName] = useState("");
+  const [isLogin, setIsLogin] = useState(false);
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Article />,
+      element: <Article isLogin={isLogin} setIsLogin={setIsLogin} />,
       children: [
         {
           path: "/",
-          element: <HomePage />,
+          element: <HomePage setCategoryName={setCategoryName} />,
         },
         {
           path: "/searchProfession",
@@ -33,10 +37,6 @@ function App() {
               setProfession={setProfession}
             />
           ),
-        },
-        {
-          path: "/userProfile",
-          element: <UserProfile />,
         },
         {
           path: "/categories",
@@ -54,23 +54,31 @@ function App() {
           path: "/forum",
           element: <Forum />,
         },
+        {
+          path: "/userProfile",
+          element: <UserProfile />,
+        },
+        {
+          path: "/changePassword",
+          element: <ChangePassword />,
+        },
+        {
+          path: "/login",
+          element: <Login isLogin={isLogin} setIsLogin={setIsLogin} />,
+        },
+        {
+          path: "/signup",
+          element: <SignUp />,
+        },
+        {
+          path: "/error",
+          element: <ErrorPage />,
+        },
+        {
+          path: "/contactUs",
+          element: <ContactUs />,
+        },
       ],
-    },
-    // {
-    //   path: "/login",
-    //   element: <LogIn isLogIn={isLogIn} setIsLogIn={setIsLogIn} />,
-    // },
-    // {
-    //   path: "/signup",
-    //   element: <SignUp />,
-    // },
-    {
-      path: "/error",
-      element: <ErrorPage />,
-    },
-    {
-      path: "/contactUs",
-      element: <ContactUs />,
     },
   ]);
 

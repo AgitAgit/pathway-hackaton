@@ -3,7 +3,7 @@ import Logo from "../../Assets/Screenshot 2024-12-18 114605.png";
 import GridCategories from "../../Components/GridCategories/GridCategories";
 import Feedback from "../../Components/Feedback/Feedback";
 
-function HomePage() {
+function HomePage({ setCategoryName }) {
   return (
     <div className={styles.HomePage}>
       <div className={styles.logoContainer}>
@@ -15,7 +15,7 @@ function HomePage() {
         הקריירה וגם בחיים. בנוסף, תוכל להתייעץ עם פורומים מקצועיים בתחומים שונים
         ולקבל את ההכוונה שאתה צריך ממומחים וקהילת משתמשים
       </h2>
-      <GridCategories />
+      <GridCategories setCategoryName={setCategoryName} />
       <Feedback />
     </div>
   );
