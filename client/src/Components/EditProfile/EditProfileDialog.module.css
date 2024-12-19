@@ -17,7 +17,6 @@
   padding: 30px;
   border-radius: 12px;
   width: 80vw;
-  /* 80% מהרוחב הכולל של המסך */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   margin-bottom: 35px;
   color: #f1f1f1;
@@ -64,6 +63,12 @@
   outline: none;
 }
 
+
+
+.select {
+  z-index: 1000;
+}
+
 .uploadButton {
   padding: 12px 20px;
   font-size: 1em;
@@ -96,6 +101,7 @@
   cursor: pointer;
   border: none;
   transition: transform 0.2s ease, background-color 0.3s ease;
+  margin-left: 10px;
 }
 
 .saveButton {
@@ -173,4 +179,9 @@
 
 .changePasswordButton:focus {
   outline: none;
+}
+
+.checkBox {
+  width: 200px;
+  height: 100px;
 }

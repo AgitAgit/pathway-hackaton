@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./SearchProfession.module.css";
 import { jobCategoriesWithIcons } from "../../Components/GridCategories/GridCategories.tsx";
 import GridProfessions from "../../Components/GridProfessions/GridProfessions.tsx";
-
+import { useSelector } from "react-redux";
 const personalityTypes = [
   "ביצועיסט",
   "חושב",
@@ -48,6 +48,9 @@ function SearchProfession({ setProfession, categoryName }) {
   const [minWeeklyHours, setMinWeeklyHours] = useState(0);
   const [maxWeeklyHours, setMaxWeeklyHours] = useState(100);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isProfileFilterOpen, setIsProfileFilterOpen] = useState(false);
+  const user = useSelector((state) => state.user.user);
+  console.log(user);
 
   const toggleForm = () => {
     setIsFormOpen(!isFormOpen);
@@ -152,6 +155,13 @@ function SearchProfession({ setProfession, categoryName }) {
     console.log("טיפוס אישיות:", personalityType || "לא הוזן");
   };
 
+  const toggleProfileFilter = () => {
+    setIsProfileFilterOpen((prev) => !prev);
+    setMinSalary(user.wantedSalary);
+    setMaxWeeklyHours(+user.wantedWeeklyHours + 10);
+    setMinWeeklyHours(+user.wantedWeeklyHours - 10);
+  };
+
   return (
     <div className={styles.searchProfession}>
       <div className={styles.searchInput}>
@@ -164,7 +174,7 @@ function SearchProfession({ setProfession, categoryName }) {
         />
       </div>
       <button onClick={toggleForm} className={styles.filterButton}>
-        {!isFormOpen ? "פילטרים" : "סגור פילטרים"}{" "}
+        {!isFormOpen ? "פילטרים" : "סגור פילטרים"}
       </button>
       <form
         onSubmit={handleFilter}
@@ -172,6 +182,13 @@ function SearchProfession({ setProfession, categoryName }) {
           isFormOpen ? styles.open : ""
         }`}
       >
+        <button
+          onClick={toggleProfileFilter}
+          className={styles.profileBtnFilter}
+        >
+          {!isProfileFilterOpen ? "סנן לפי פרופיל" : "כל אופציות הסינון"}
+        </button>
+
         <div className={styles.filters}>
           <div className={styles.filter}>
             <label>קטגוריה</label>
