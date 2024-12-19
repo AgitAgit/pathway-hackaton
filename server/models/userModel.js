@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       enum: ["משתמש", "מנטור", "developer", "מומחה"],
       required: false,
-      default: 'user'
+      default: 'משתמש'
     },
     highSchoolGraduate: {
       type: Boolean,
